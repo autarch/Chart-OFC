@@ -87,13 +87,13 @@ sub BUILD
     {
         my $self = shift;
 
-        my @lines = $self->_ofc_data_lines();
+        my @lines = $self->ofc_data_lines();
 
         return join '', map { $_ . $CRLF } @lines;
     }
 }
 
-sub _ofc_data_lines
+sub ofc_data_lines
 {
     my $self = shift;
 

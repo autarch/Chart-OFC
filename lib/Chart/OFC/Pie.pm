@@ -65,7 +65,7 @@ sub BUILD
     return;
 }
 
-override _ofc_data_lines => sub
+override ofc_data_lines => sub
 {
     my $self = shift;
 

@@ -6,7 +6,7 @@ use warnings;
 use Graphics::ColorNames;
 
 use MooseX::Types -declare => [ 'NonEmptyArrayRef' ];
-use MooseX::Types::Moose qw( Str Int ArrayRef );
+use MooseX::Types::Moose qw( Str Int ArrayRef HashRef Object );
 
 subtype 'NonEmptyArrayRef'
     => as ArrayRef,
@@ -49,6 +49,13 @@ coerce 'Color'
 }
 
 {
+    unless ( find_type_constraint('Chart::OFC::Dataset' ) )
+    {
+        subtype 'Chart::OFC::Dataset'
+            => as Object
+            => where { $_->isa('Chart::OFC::Dataset') };
+    }
+
     my $constraint = find_type_constraint('Chart::OFC::Dataset');
 
     subtype 'NonEmptyArrayRefOfTypedDatasets'
@@ -56,10 +63,24 @@ coerce 'Color'
         => where { for my $c ( @{ $_ } )
                    {
                        return 0 unless $constraint->check($c);
+                       return 0 unless $c->can('type');
                    }
                    return 1; }
-        => message { 'array reference cannot be empty and must be a list of colors' };
+        => message { 'array reference cannot be must be a list of typed datasets' };
 }
+
+unless ( find_type_constraint('Chart::OFC::AxisLabel' ) )
+{
+    subtype 'Chart::OFC::AxisLabel'
+        => as Object
+        => where { $_->isa('Chart::OFC::AxisLabel') };
+}
+
+coerce 'Chart::OFC::AxisLabel'
+    => from HashRef
+    => via { Chart::OFC::AxisLabel->new( %{ $_ } ) }
+    => from Str
+    => via { Chart::OFC::AxisLabel->new( label => $_ ) };
 
 subtype 'Angle'
     => as Int,
@@ -71,10 +92,22 @@ subtype 'Opacity'
     => where { $_ >= 0 && $_ <= 100 }
     => message { "$_ is not a number from 0-100" };
 
-subtype 'BarSize'
+subtype 'Size'
     => as Int,
     => where  { $_ == -1 || $_ > 0 }
     => message { "bar size must be -1 or greater than 0" };
+
+subtype 'PosInt'
+    => as Int,
+    => where  { $_ > 0 }
+    => message { 'must be a positive integer' };
+
+subtype 'PosNum'
+    => as Int,
+    => where  { $_ > 0 }
+    => message { 'must be a positive number' };
+
+enum 'Orientation' => qw( horizontal vertical diagonal );
 
 
 {

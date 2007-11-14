@@ -12,12 +12,24 @@ extends 'Chart::OFC';
 
 has datasets =>
     ( is       => 'ro',
-      isa      => '',
+      isa      => 'NonEmptyArrayRefOfTypedDatasets',
+      required => 1,
+    );
+
+has x_axis =>
+    ( is       => 'ro',
+      isa      => 'Chart::OFC::Axis::X',
+      required => 1,
+    );
+
+has y_axis =>
+    ( is       => 'ro',
+      isa      => 'Chart::OFC::Axis::Y',
       required => 1,
     );
 
 
-override _ofc_data_lines => sub
+override ofc_data_lines => sub
 {
     my $self = shift;
 
@@ -29,5 +41,6 @@ override _ofc_data_lines => sub
 
 no Moose;
 __PACKAGE__->meta()->make_immutable();
+
 
 1;

@@ -7,24 +7,24 @@ use Chart::OFC::Dataset::FadeBar;
 
 
 {
-    my $bar = Chart::OFC::Dataset::FadeBar->new( values => [ 1,   2 ],
-                                                 label  => 'Things',
-                                                 size   => 10,
+    my $bar = Chart::OFC::Dataset::FadeBar->new( values    => [ 1, 2 ],
+                                                 label     => 'Things',
+                                                 text_size => 10,
                                                );
 
     my @data = ( '&bar_fade=80,#000000,Things,10&',
                  '&values=1,2&',
                );
 
-    is_deeply( [ $bar->_ofc_data_lines() ], \@data,
-               'check _ofc_data_lines output' );
+    is_deeply( [ $bar->ofc_data_lines() ], \@data,
+               'check ofc_data_lines output' );
 }
 
 {
     my $bar = Chart::OFC::Dataset::FadeBar->new( values        => [ 1, 2 ],
                                                  label         => 'Things',
                                                  outline_color => 'red',
-                                                 size          => 26,
+                                                 text_size     => 26,
                                                  opacity       => 50,
                                                );
 
@@ -32,6 +32,6 @@ use Chart::OFC::Dataset::FadeBar;
                  '&values_2=1,2&',
                );
 
-    is_deeply( [ $bar->_ofc_data_lines(2) ], \@data,
-               'check _ofc_data_lines output' );
+    is_deeply( [ $bar->ofc_data_lines(2) ], \@data,
+               'check ofc_data_lines output' );
 }

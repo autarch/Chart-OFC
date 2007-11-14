@@ -26,7 +26,11 @@ sub _bar_parameters
 {
     my $self = shift;
 
-    return ( $self->opacity(), $self->fill_color(), $self->outline_color(), $self->label(), $self->size() );
+    my @p = ( $self->opacity(), $self->fill_color(), $self->outline_color() );
+    push @p, ( $self->label(), $self->text_size() )
+        if $self->has_label();
+
+    return @p;
 }
 
 

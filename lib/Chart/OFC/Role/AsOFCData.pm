@@ -5,6 +5,8 @@ use warnings;
 
 use Moose::Role;
 
+requires 'ofc_data_lines';
+
 
 sub _data_line
 {

@@ -20,4 +20,7 @@ no Moose;
 __PACKAGE__->meta()->make_immutable();
 
 
+sub ofc_data_lines { die 'This is a virtual method' }
+
+
 1;

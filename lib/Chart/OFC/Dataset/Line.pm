@@ -1,4 +1,4 @@
-package Chart::OFC::Dataset::Bar;
+package Chart::OFC::Dataset::Line;
 
 use strict;
 use warnings;
@@ -9,13 +9,13 @@ use Chart::OFC::Types;
 
 extends 'Chart::OFC::Dataset';
 
-has opacity =>
-    ( is         => 'ro',
-      isa        => 'Opacity',
-      default    => '80',
+has width =>
+    ( is      => 'ro',
+      isa     => 'PosInt',
+      default => 1,
     );
 
-has outline_color =>
+has color =>
     ( is      => 'ro',
       isa     => 'Color',
       coerce  => 1,
@@ -34,13 +34,14 @@ has text_size =>
       default => -1,
     );
 
+
 no Moose;
 __PACKAGE__->meta()->make_immutable();
 
 
 sub type
 {
-    return 'bar';
+    return 'line';
 }
 
 sub ofc_data_lines
@@ -57,16 +58,16 @@ sub ofc_data_lines
         if $count && $count > 1;
 
     return
-        ( $self->_data_line( $name, $self->_bar_parameters() ),
+        ( $self->_data_line( $name, $self->_line_parameters() ),
           $self->_data_line( $val_name, $self->values() ),
         );
 }
 
-sub _bar_parameters
+sub _line_parameters
 {
     my $self = shift;
 
-    my @p = ( $self->opacity(), $self->outline_color() );
+    my @p = ( $self->width(), $self->color() );
     push @p, ( $self->label(), $self->text_size() )
         if $self->has_label();
 
