@@ -1,0 +1,40 @@
+use strict;
+use warnings;
+
+use Test::More tests => 5;
+
+use Chart::OFC::Dataset;
+use Chart::OFC::Pie;
+
+
+eval { Chart::OFC::Pie->new() };
+like( $@, qr/\Q(dataset) is required/, 'data_set is required for constructor' );
+
+my $set = Chart::OFC::Dataset->new( values => [ 1..10 ] );
+
+eval { Chart::OFC::Pie->new( dataset => $set, labels => [ 'a'..'j' ], slice_colors => [] ) };
+like( $@, qr/\Qpass the type constraint (NonEmptyArrayRefOfColors)/,
+      'cannot pass an empty array ref for slice_colors' );
+
+eval { Chart::OFC::Pie->new( dataset => $set, labels => [ 'a'..'j' ], slice_colors => [ 'not a color' ] ) };
+like( $@, qr/\Qpass the type constraint (NonEmptyArrayRefOfColors)/,
+      'cannot pass a bad color in slice_colors' );
+
+my $pie = Chart::OFC::Pie->new( title => 'Pie Test', dataset => $set, labels => [ 'a'..'j' ] );
+is_deeply( $pie->slice_colors(),
+           [ '#FF0000', '#0000FF', '#00FF00', '#FFFF00', '#FFA500', '#A020F0', '#000000' ],
+           'check default slice colors',
+         );
+
+{
+    my @data = ( '&title=Pie Test,&',
+                 '&pie=80,#000000,#000000&',
+                 '&values=1,2,3,4,5,6,7,8,9,10&',
+                 '&pie_labels=a,b,c,d,e,f,g,h,i,j&',
+                 '&colours=#FF0000,#0000FF,#00FF00,#FFFF00,#FFA500,#A020F0,#000000&',
+               );
+
+    my $data = join '', map { $_ . "\r\n" } @data;
+    is( $pie->as_ofc_data(), $data,
+        'check as_ofc_data output' );
+}

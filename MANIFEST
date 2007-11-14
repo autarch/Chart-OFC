@@ -1,0 +1,10 @@
+Build.PL
+Changes
+MANIFEST
+MANIFEST.SKIP
+META.yml # Will be created by "make dist"
+README # Will be created by "make dist"
+lib/Chart/OFC.pm
+t/perlcritic.t
+t/pod-coverage.t
+t/pod.t
