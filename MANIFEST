@@ -22,6 +22,7 @@ Makefile.PL
 MANIFEST
 META.yml			# Will be created by "make dist"
 README				# Will be created by "make dist"
+swf/open-flash-chart-1.9.3.swf
 t/AxisLabel.t
 t/Dataset.t
 t/Dataset/3DBar.t
