@@ -6,9 +6,9 @@ use Module::Build;
 my $builder = Module::Build->new
     ( module_name          => 'Chart::OFC',
       license              => 'perl',
-      requires             => { 'Graphics::ColorNames',
-                                'Moose',
-                                'MooseX::Types',
+      requires             => { 'Graphics::ColorNames' => 0,
+                                'Moose'                => 0,
+                                'MooseX::Types'        => 0,
                               },
       build_requires       => { 'Test::More' => 0,
                               },
