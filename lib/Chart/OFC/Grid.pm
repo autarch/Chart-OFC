@@ -3,12 +3,10 @@ package Chart::OFC::Grid;
 use strict;
 use warnings;
 
-use Moose::Policy 'Chart::OFC::Policy';
 use Moose;
 use Chart::OFC::Types;
 
 extends 'Chart::OFC';
-
 
 has datasets =>
     ( is       => 'ro',
@@ -18,13 +16,13 @@ has datasets =>
 
 has x_axis =>
     ( is       => 'ro',
-      isa      => 'Chart::OFC::Axis::X',
+      isa      => 'Chart::OFC::XAxis',
       required => 1,
     );
 
 has y_axis =>
     ( is       => 'ro',
-      isa      => 'Chart::OFC::Axis::Y',
+      isa      => 'Chart::OFC::YAxis',
       required => 1,
     );
 
@@ -33,8 +31,12 @@ override ofc_data_lines => sub
 {
     my $self = shift;
 
+    my $x = 1;
     return
         ( super(),
+          $self->x_axis()->ofc_data_lines(),
+          $self->y_axis()->ofc_data_lines(),
+          map { $_->ofc_data_lines($x++) } @{ $self->datasets() },
         );
 };
 

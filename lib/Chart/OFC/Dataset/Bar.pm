@@ -3,7 +3,6 @@ package Chart::OFC::Dataset::Bar;
 use strict;
 use warnings;
 
-use Moose::Policy 'Chart::OFC::Policy';
 use Moose;
 use Chart::OFC::Types;
 

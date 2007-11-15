@@ -5,22 +5,21 @@ use warnings;
 
 our $VERSION = '0.01';
 
-use Moose::Policy 'Chart::OFC::Policy';
 use Moose;
 use Chart::OFC::Types;
 
 with 'Chart::OFC::Role::AsOFCData';
 
 has title =>
-    ( is      => 'ro',
-      isa     => 'Str',
-      default => '',
+    ( is        => 'ro',
+      isa       => 'Str',
+      predicate => 'has_title',
     );
 
 has title_style =>
-    ( is      => 'ro',
-      isa     => 'Str',
-      default => '',
+    ( is        => 'ro',
+      isa       => 'Str',
+      predicate => 'has_title_style',
     );
 
 has tool_tip =>
@@ -68,7 +67,6 @@ __PACKAGE__->meta()->make_immutable();
 sub BUILD
 {
     my $self = shift;
-    my $p    = shift;
 
     die "You cannot set an inner background fade angle unless you set two background colors"
         if $self->has_inner_bg_fade_angle()
@@ -97,7 +95,11 @@ sub ofc_data_lines
 {
     my $self = shift;
 
-    my @lines = $self->_data_line( 'title', $self->title(), $self->title_style() );
+    my @lines;
+
+    push @lines, $self->_data_line( 'title', $self->title(),
+                                    ( $self->has_title_style() ? $self->title_style() : () ) )
+        if $self->has_title();
 
     for my $key ( qw( tool_tip bg_color ) )
     {
@@ -128,6 +130,28 @@ sub _inner_background_line
     return $self->_data_line( 'inner_background', @vals );
 }
 
+# Moose gets weird if these things are loaded before various subs are
+# defined.
+
+# If these requires are changed to a use some tests start failing in
+# weird ways. WTF?
+
+#require Chart::OFC::Area;
+require Chart::OFC::Grid;
+require Chart::OFC::Pie;
+
+require Chart::OFC::AxisLabel;
+require Chart::OFC::XAxis;
+require Chart::OFC::YAxis;
+
+require Chart::OFC::Dataset::3DBar;
+require Chart::OFC::Dataset::Bar;
+require Chart::OFC::Dataset::FadeBar;
+require Chart::OFC::Dataset::FilledBar;
+require Chart::OFC::Dataset::GlassBar;
+require Chart::OFC::Dataset::Line;
+require Chart::OFC::Dataset::LineWithDots;
+
 
 1;
 
@@ -137,15 +161,13 @@ __END__
 
 =head1 NAME
 
-Chart::OFC - The fantastic new Chart::OFC!
+Chart::OFC - Generate data files for require with Open Flash Chart
 
 =head1 SYNOPSIS
 
-XXX - change this!
+    use Chart::OFC; # load all the other classes
 
-    use Chart::OFC;
-
-    my $foo = Chart::OFC->new();
+    my $foo = Chart::OFC::Pie->new( title => 'My Chart' );
 
     ...
 

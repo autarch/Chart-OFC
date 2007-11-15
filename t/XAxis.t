@@ -8,58 +8,58 @@ use Chart::OFC::AxisLabel;
 
 
 eval { Chart::OFC::XAxis->new() };
-like( $@, qr/\Q(legend) is required/, 'legend is required for constructor' );
+like( $@, qr/\Q(axis_label) is required/, 'axis_label is required for constructor' );
 
 {
-    my $legend = Chart::OFC::AxisLabel->new( label => 'Months' );
+    my $axis_label = Chart::OFC::AxisLabel->new( label => 'Months' );
 
-    my $axis = Chart::OFC::XAxis->new( legend => $legend );
+    my $axis = Chart::OFC::XAxis->new( axis_label => $axis_label );
 
     my @lines = ( '&x_legend=Months,-1,#000000&',
                   '&x_label_style=10,#000000,0,1,#000000&',
                 );
     is_deeply( [ $axis->ofc_data_lines() ], \@lines,
-               'data lines with defaults and label-only legend' );
+               'data lines with defaults and label' );
 }
 
 {
-    my $legend = Chart::OFC::AxisLabel->new( label      => 'Months',
-                                             text_color => 'red',
-                                             text_size  => 10,
-                                           );
+    my $axis_label = Chart::OFC::AxisLabel->new( label      => 'Months',
+                                                 text_color => 'red',
+                                                 text_size  => 10,
+                                               );
 
-    my $axis = Chart::OFC::XAxis->new( legend => $legend );
+    my $axis = Chart::OFC::XAxis->new( axis_label => $axis_label );
 
     my @lines = ( '&x_legend=Months,10,#FF0000&',
                   '&x_label_style=10,#000000,0,1,#000000&',
                 );
     is_deeply( [ $axis->ofc_data_lines() ], \@lines,
-               'data lines with all-params legend' );
+               'data lines with all-params axis_label' );
 }
 
 {
-    my $axis = Chart::OFC::XAxis->new( legend => 'Months' );
+    my $axis = Chart::OFC::XAxis->new( axis_label => 'Months' );
 
     my @lines = ( '&x_legend=Months,-1,#000000&',
                   '&x_label_style=10,#000000,0,1,#000000&',
                 );
     is_deeply( [ $axis->ofc_data_lines() ], \@lines,
-               'string -> legend coercion' );
+               'string -> axis_label coercion' );
 }
 
 {
-    my $axis = Chart::OFC::XAxis->new( legend => { label => 'Months', text_size => 15 } );
+    my $axis = Chart::OFC::XAxis->new( axis_label => { label => 'Months', text_size => 15 } );
 
     my @lines = ( '&x_legend=Months,15,#000000&',
                   '&x_label_style=10,#000000,0,1,#000000&',
                 );
     is_deeply( [ $axis->ofc_data_lines() ], \@lines,
-               'hashref -> legend coercion' );
+               'hashref -> axis_label coercion' );
 }
 
 {
     my $axis =
-        Chart::OFC::XAxis->new( legend         => 'Months',
+        Chart::OFC::XAxis->new( axis_label     => 'Months',
                                 label_steps    => 4,
                                 tick_steps     => 2,
                                 text_size      => 7,

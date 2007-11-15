@@ -3,12 +3,10 @@ package Chart::OFC::Pie;
 use strict;
 use warnings;
 
-use Moose::Policy 'Chart::OFC::Policy';
 use Moose;
 use Chart::OFC::Types;
 
 extends 'Chart::OFC';
-
 
 has dataset =>
     ( is       => 'ro',
@@ -50,7 +48,6 @@ has opacity =>
       isa        => 'Opacity',
       default    => '80',
     );
-
 
 sub BUILD
 {

@@ -1,3 +1,9 @@
+Please note that the Open Flash Chart code has its own license,
+separate from that of the Chart-OFC Perl distribution. See ofc/LICENSE
+for details.
+
+---------------------------------------------------------------------------
+
 Terms of Perl itself
 
 a) the GNU General Public License as published by the Free

@@ -3,11 +3,11 @@ package Chart::OFC::XAxis;
 use strict;
 use warnings;
 
-use Moose::Policy 'Chart::OFC::Policy';
 use Moose;
 use Chart::OFC::Types;
 
 extends 'Chart::OFC::Axis';
+
 
 has labels =>
     ( is        => 'ro',
@@ -51,7 +51,7 @@ sub ofc_data_lines
 {
     my $self = shift;
 
-    my @lines = $self->legend()->ofc_data_lines('x');
+    my @lines = $self->axis_label()->ofc_data_lines('x');
 
     push @lines, $self->_data_line( 'x_labels', @{ $self->labels() } )
         if $self->has_labels();

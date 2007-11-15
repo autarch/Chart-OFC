@@ -8,18 +8,18 @@ use Chart::OFC::AxisLabel;
 
 
 eval { Chart::OFC::YAxis->new( tick_steps => 4, max => 20 ) };
-like( $@, qr/\Q(legend) is required/, 'legend is required for constructor' );
+like( $@, qr/\Q(axis_label) is required/, 'axis_label is required for constructor' );
 
-eval { Chart::OFC::YAxis->new( legend => 'Foo', max => 20 ) };
+eval { Chart::OFC::YAxis->new( axis_label => 'Foo', max => 20 ) };
 like( $@, qr/\Q(tick_steps) is required/, 'tick_steps is required for constructor' );
 
-eval { Chart::OFC::YAxis->new( legend => 'Foo', tick_steps => 4 ) };
+eval { Chart::OFC::YAxis->new( axis_label => 'Foo', tick_steps => 4 ) };
 like( $@, qr/\Q(max) is required/, 'max is required for constructor' );
 
 {
-    my $legend = Chart::OFC::AxisLabel->new( label => 'Size' );
+    my $axis_label = Chart::OFC::AxisLabel->new( label => 'Size' );
 
-    my $axis = Chart::OFC::YAxis->new( legend     => $legend,
+    my $axis = Chart::OFC::YAxis->new( axis_label => $axis_label,
                                        max        => 20,
                                        tick_steps => 4,
                                      );
@@ -33,16 +33,16 @@ like( $@, qr/\Q(max) is required/, 'max is required for constructor' );
                   '&y_grid_colour=#000000&',
                 );
     is_deeply( [ $axis->ofc_data_lines() ], \@lines,
-               'data lines with defaults and label-only legend' );
+               'data lines with defaults and label-only axis_label' );
 }
 
 {
-    my $axis = Chart::OFC::YAxis->new( legend     => 'Size',
-                                       min        => -10,
-                                       max        => 20.5,
+    my $axis = Chart::OFC::YAxis->new( axis_label      => 'Size',
+                                       min             => -10,
+                                       max             => 20.5,
                                        small_tick_size => 2,
                                        large_tick_size => 20,
-                                       tick_steps => 3,
+                                       tick_steps      => 3,
                                      );
 
     my @lines = ( '&y_legend=Size,-1,#000000&',
@@ -54,5 +54,5 @@ like( $@, qr/\Q(max) is required/, 'max is required for constructor' );
                   '&y_grid_colour=#000000&',
                 );
     is_deeply( [ $axis->ofc_data_lines() ], \@lines,
-               'data lines with defaults and label-only legend' );
+               'data lines with defaults and label-only axis_label' );
 }

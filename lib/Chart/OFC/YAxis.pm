@@ -3,11 +3,11 @@ package Chart::OFC::YAxis;
 use strict;
 use warnings;
 
-use Moose::Policy 'Chart::OFC::Policy';
 use Moose;
 use Chart::OFC::Types;
 
 extends 'Chart::OFC::Axis';
+
 
 has min =>
     ( is      => 'ro',
@@ -47,7 +47,7 @@ sub ofc_data_lines
 {
     my $self = shift;
 
-    my @lines = $self->legend()->ofc_data_lines('y');
+    my @lines = $self->axis_label()->ofc_data_lines('y');
 
     push @lines, $self->_data_line( 'y_label_style',
                                     $self->text_size(), $self->text_color(),

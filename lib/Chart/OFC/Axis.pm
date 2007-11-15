@@ -3,7 +3,6 @@ package Chart::OFC::Axis;
 use strict;
 use warnings;
 
-use Moose::Policy 'Chart::OFC::Policy';
 use Moose;
 use Chart::OFC::Types;
 
@@ -29,7 +28,7 @@ has grid_color =>
       default => '#000000',
     );
 
-has legend =>
+has axis_label =>
     ( is       => 'ro',
       isa      => 'Chart::OFC::AxisLabel',
       coerce   => 1,

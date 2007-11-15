@@ -27,7 +27,7 @@ is_deeply( $pie->slice_colors(),
          );
 
 {
-    my @data = ( '&title=Pie Test,&',
+    my @data = ( '&title=Pie Test&',
                  '&pie=80,#000000,#000000&',
                  '&values=1,2,3,4,5,6,7,8,9,10&',
                  '&pie_labels=a,b,c,d,e,f,g,h,i,j&',
