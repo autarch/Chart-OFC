@@ -1,4 +1,5 @@
-package Chart::OFC::Dataset::3DBar;
+# critic is on drugs, I guess
+package Chart::OFC::Dataset::3DBar; ## no critic RequireFilenameMatchesPackage
 
 use strict;
 use warnings;
@@ -12,7 +13,10 @@ no Moose;
 __PACKAGE__->meta()->make_immutable();
 
 
-sub type { 'bar_3d' }
+sub type
+{
+    return 'bar_3d';
+}
 
 
 1;

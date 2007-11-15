@@ -12,7 +12,10 @@ no Moose;
 __PACKAGE__->meta()->make_immutable();
 
 
-sub type { 'bar_fade' }
+sub type
+{
+    return 'bar_fade';
+}
 
 
 1;

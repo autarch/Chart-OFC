@@ -26,7 +26,7 @@ coerce 'Color'
     my $names = Graphics::ColorNames->new();
     sub _name_to_hex_color
     {
-        no warnings 'uninitialized';
+        no warnings 'uninitialized'; ## no critic ProhibitNoWarnings
         return uc $names->hex( $_, '#' );
     }
 }
@@ -113,10 +113,10 @@ enum 'Orientation' => qw( horizontal vertical diagonal );
 {
     # Monkey-patch to shut up an annoying warning!
 
-    package Graphics::ColorNames;
+    package Graphics::ColorNames; ## no critic ProhibitMultiplePackages
 
-    no warnings 'redefine';
-    sub hex {
+    no warnings 'redefine'; ## no critic ProhibitNoWarnings
+    sub hex { ## no critic ProhibitBuiltinHomonyms
         my $self = shift;
         my $name = shift;
         my $rgb  = $self->FETCH($name);

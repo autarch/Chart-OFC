@@ -8,7 +8,7 @@ use Moose::Role;
 requires 'ofc_data_lines';
 
 
-sub _data_line
+sub _data_line ## no critic RequireArgUnpacking
 {
     my $self  = shift;
     my $label = shift;

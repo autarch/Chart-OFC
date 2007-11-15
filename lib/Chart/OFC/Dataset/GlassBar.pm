@@ -12,7 +12,10 @@ no Moose;
 __PACKAGE__->meta()->make_immutable();
 
 
-sub type { 'bar_glass' }
+sub type
+{
+    return 'bar_glass';
+}
 
 
 1;

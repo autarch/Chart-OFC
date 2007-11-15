@@ -19,7 +19,10 @@ no Moose;
 __PACKAGE__->meta()->make_immutable();
 
 
-sub type { 'filled_bar' }
+sub type
+{
+    return 'filled_bar';
+}
 
 sub _bar_parameters
 {
