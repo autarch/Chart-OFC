@@ -4,7 +4,7 @@ package Chart::OFC::Dataset::3DBar; ## no critic RequireFilenameMatchesPackage
 use strict;
 use warnings;
 
-use Moose;
+use MooseX::StrictConstructor;
 use Chart::OFC::Types;
 
 extends 'Chart::OFC::Dataset::Bar';

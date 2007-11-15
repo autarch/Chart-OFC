@@ -3,7 +3,7 @@ package Chart::OFC::XAxis;
 use strict;
 use warnings;
 
-use Moose;
+use MooseX::StrictConstructor;
 use Chart::OFC::Types;
 
 extends 'Chart::OFC::Axis';
@@ -61,7 +61,7 @@ sub ofc_data_lines
                                     $self->text_color(),
                                     $Orientation{ $self->orientation() },
                                     $self->label_steps(),
-                                    $self->grid_color(),
+                                    ( $self->has_grid_color() ? $self->grid_color() : () ),
                                   );
 
     push @lines, $self->_data_line( 'x_ticks', $self->tick_steps() )

@@ -3,7 +3,7 @@ package Chart::OFC::Dataset::GlassBar;
 use strict;
 use warnings;
 
-use Moose;
+use MooseX::StrictConstructor;
 use Chart::OFC::Types;
 
 extends 'Chart::OFC::Dataset::FilledBar';

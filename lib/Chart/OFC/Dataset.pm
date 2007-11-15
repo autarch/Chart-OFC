@@ -3,7 +3,7 @@ package Chart::OFC::Dataset;
 use strict;
 use warnings;
 
-use Moose;
+use MooseX::StrictConstructor;
 use Chart::OFC::Types;
 
 with 'Chart::OFC::Role::AsOFCData';

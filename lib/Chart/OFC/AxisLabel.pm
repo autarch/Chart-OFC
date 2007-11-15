@@ -3,7 +3,7 @@ package Chart::OFC::AxisLabel;
 use strict;
 use warnings;
 
-use Moose;
+use MooseX::StrictConstructor;
 use Chart::OFC::Types;
 
 with 'Chart::OFC::Role::AsOFCData';
@@ -24,7 +24,7 @@ has text_color =>
 has text_size =>
     ( is      => 'ro',
       isa     => 'Size',
-      default => -1,
+      default => 20,
     );
 
 no Moose;

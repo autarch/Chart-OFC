@@ -5,7 +5,7 @@ use warnings;
 
 our $VERSION = '0.01';
 
-use Moose;
+use MooseX::StrictConstructor;
 use Chart::OFC::Types;
 
 with 'Chart::OFC::Role::AsOFCData';
@@ -165,11 +165,13 @@ Chart::OFC - Generate data files for require with Open Flash Chart
 
 =head1 SYNOPSIS
 
-    use Chart::OFC; # load all the other classes
+    use Chart::OFC; # loads all the other classes
 
-    my $foo = Chart::OFC::Pie->new( title => 'My Chart' );
+    my $pie = Chart::OFC::Pie->new( title => 'My Chart' );
 
     ...
+
+=head1 DESCRIPTION
 
 =head1 METHODS
 

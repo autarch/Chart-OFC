@@ -3,7 +3,7 @@ package Chart::OFC::Dataset::FadeBar;
 use strict;
 use warnings;
 
-use Moose;
+use MooseX::StrictConstructor;
 use Chart::OFC::Types;
 
 extends 'Chart::OFC::Dataset::Bar';

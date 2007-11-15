@@ -3,7 +3,7 @@ package Chart::OFC::Axis;
 use strict;
 use warnings;
 
-use Moose;
+use MooseX::StrictConstructor;
 use Chart::OFC::Types;
 
 with 'Chart::OFC::Role::AsOFCData';
@@ -18,14 +18,14 @@ has text_color =>
     ( is      => 'ro',
       isa     => 'Color',
       coerce  => 1,
-      default => '#000000',
+      default => '#784016'
     );
 
 has grid_color =>
-    ( is      => 'ro',
-      isa     => 'Color',
-      coerce  => 1,
-      default => '#000000',
+    ( is        => 'ro',
+      isa       => 'Color',
+      coerce    => 1,
+      predicate => 'has_grid_color',
     );
 
 has axis_label =>
