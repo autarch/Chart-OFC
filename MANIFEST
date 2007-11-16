@@ -5,6 +5,7 @@ lib/Chart/OFC/Axis.pm
 lib/Chart/OFC/AxisLabel.pm
 lib/Chart/OFC/Dataset.pm
 lib/Chart/OFC/Dataset/3DBar.pm
+lib/Chart/OFC/Dataset/Area.pm
 lib/Chart/OFC/Dataset/Bar.pm
 lib/Chart/OFC/Dataset/FadeBar.pm
 lib/Chart/OFC/Dataset/GlassBar.pm
@@ -67,6 +68,7 @@ README
 t/AxisLabel.t
 t/Dataset.t
 t/Dataset/3DBar.t
+t/Dataset/Area.t
 t/Dataset/Bar.t
 t/Dataset/FadeBar.t
 t/Dataset/GlassBar.t
