@@ -140,7 +140,7 @@ __END__
 
 =head1 NAME
 
-Chart::OFC::Types - type library for Chart::OFC;
+Chart::OFC::Types - type library for Chart::OFC
 
 =head1 SYNOPSIS
 
