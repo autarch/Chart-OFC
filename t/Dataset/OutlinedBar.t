@@ -3,23 +3,23 @@ use warnings;
 
 use Test::More tests => 3;
 
-use Chart::OFC::Dataset::FilledBar;
+use Chart::OFC::Dataset::OutlinedBar;
 
 
 {
-    my $bar = Chart::OFC::Dataset::FilledBar->new( values => [ 1, 2 ],
+    my $bar = Chart::OFC::Dataset::OutlinedBar->new( values => [ 1, 2 ],
                                                  );
 
     my @data = ( '&filled_bar=80,#999999,#000000&',
                  '&values=1,2&',
                );
 
-    is_deeply( [ $bar->ofc_data_lines() ], \@data,
-               'check ofc_data_lines output - no label' );
+    is_deeply( [ $bar->_ofc_data_lines() ], \@data,
+               'check _ofc_data_lines output - no label' );
 }
 
 {
-    my $bar = Chart::OFC::Dataset::FilledBar->new( values    => [ 1, 2 ],
+    my $bar = Chart::OFC::Dataset::OutlinedBar->new( values    => [ 1, 2 ],
                                                    label     => 'Things',
                                                    text_size => 10,
                                                  );
@@ -28,12 +28,12 @@ use Chart::OFC::Dataset::FilledBar;
                  '&values=1,2&',
                );
 
-    is_deeply( [ $bar->ofc_data_lines() ], \@data,
-               'check ofc_data_lines output - labeled' );
+    is_deeply( [ $bar->_ofc_data_lines() ], \@data,
+               'check _ofc_data_lines output - labeled' );
 }
 
 {
-    my $bar = Chart::OFC::Dataset::FilledBar->new( values        => [ 1, 2 ],
+    my $bar = Chart::OFC::Dataset::OutlinedBar->new( values        => [ 1, 2 ],
                                                    label         => 'Things',
                                                    fill_color    => 'blue',
                                                    outline_color => 'red',
@@ -45,6 +45,6 @@ use Chart::OFC::Dataset::FilledBar;
                  '&values_2=1,2&',
                );
 
-    is_deeply( [ $bar->ofc_data_lines(2) ], \@data,
-               'check ofc_data_lines output - all parameters' );
+    is_deeply( [ $bar->_ofc_data_lines(2) ], \@data,
+               'check _ofc_data_lines output - all parameters' );
 }

@@ -4,14 +4,9 @@ use strict;
 use warnings;
 
 use Graphics::ColorNames;
-
+use List::MoreUtils qw( any );
 use MooseX::Types -declare => [ 'NonEmptyArrayRef' ];
 use MooseX::Types::Moose qw( Str Int ArrayRef HashRef Object );
-
-subtype 'NonEmptyArrayRef'
-    => as ArrayRef,
-    => where { scalar @{ $_ } > 0 }
-    => message { 'array reference cannot be empty' };
 
 subtype 'Color'
     => as Str,
@@ -31,15 +26,27 @@ coerce 'Color'
     }
 }
 
+subtype 'NonEmptyArrayRef'
+    => as ArrayRef
+    => where { return scalar @{ $_ } > 0 };
+
+{
+    my $constraint = find_type_constraint('Num');
+
+    subtype 'NonEmptyArrayRefOfNums'
+        => as 'NonEmptyArrayRef',
+        => where { return 0 if any { ! $constraint->check($_) } @{ $_ };
+                   return 1; }
+        => message { 'array reference cannot be empty' };
+}
+
 {
     my $constraint = find_type_constraint('Color');
 
     subtype 'NonEmptyArrayRefOfColors'
         => as 'NonEmptyArrayRef',
-        => where { for my $c ( @{ $_ } )
-                   {
-                       return 0 unless $constraint->check($c);
-                   }
+        => where { return 0 unless @{ $_ } > 0;
+                   return 0 if any { ! $constraint->check($_) } @{ $_ };
                    return 1; }
         => message { 'array reference cannot be empty and must be a list of colors' };
 
@@ -60,11 +67,8 @@ coerce 'Color'
 
     subtype 'NonEmptyArrayRefOfTypedDatasets'
         => as 'NonEmptyArrayRef',
-        => where { for my $c ( @{ $_ } )
-                   {
-                       return 0 unless $constraint->check($c);
-                       return 0 unless $c->can('type');
-                   }
+        => where { return 0 unless @{ $_ } > 0;
+                   return 0 if any { ! ( $constraint->check($_) && $_->can('type') ) } @{ $_ };
                    return 1; }
         => message { 'array reference cannot be must be a list of typed datasets' };
 }
@@ -92,15 +96,13 @@ subtype 'Opacity'
     => where { $_ >= 0 && $_ <= 100 }
     => message { "$_ is not a number from 0-100" };
 
-subtype 'Size'
-    => as Int,
-    => where  { $_ == -1 || $_ > 0 }
-    => message { "bar size must be -1 or greater than 0" };
-
 subtype 'PosInt'
     => as Int,
     => where  { $_ > 0 }
     => message { 'must be a positive integer' };
+
+subtype 'Size'
+    => as 'PosInt';
 
 subtype 'PosNum'
     => as Int,
@@ -120,7 +122,7 @@ enum 'Orientation' => qw( horizontal vertical diagonal );
         my $self = shift;
         my $name = shift;
         my $rgb  = $self->FETCH($name);
-        return unless defined $rgb;
+        return unless defined $rgb; # this is the monkey line
         my $pre  = shift;
         unless (defined $pre) { $pre = ""; }
         return ($pre.$rgb);
@@ -128,5 +130,38 @@ enum 'Orientation' => qw( horizontal vertical diagonal );
 }
 
 
-
 1;
+
+
+__END__
+
+=pod
+
+=head1 NAME
+
+Chart::OFC::Types - type library for Chart::OFC;
+
+=head1 SYNOPSIS
+
+  package Chart::OFC::Thingy;
+
+  use Chart::OFC::Types;
+
+  has opacity =>
+      ( is  => 'ro',
+        isa => 'Opacity',
+      );
+
+=head1 DESCRIPTION
+
+This class provides a library of types for use by other Chart::OFC
+classes.
+
+=head1 COPYRIGHT & LICENSE
+
+Copyright 2007 Dave Rolsky, All Rights Reserved.
+
+This program is free software; you can redistribute it and/or modify
+it under the same terms as Perl itself.
+
+=cut

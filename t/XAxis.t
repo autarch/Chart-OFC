@@ -15,10 +15,10 @@ like( $@, qr/\Q(axis_label) is required/, 'axis_label is required for constructo
 
     my $axis = Chart::OFC::XAxis->new( axis_label => $axis_label );
 
-    my @lines = ( '&x_legend=Months,-1,#000000&',
-                  '&x_label_style=10,#000000,0,1,#000000&',
+    my @lines = ( '&x_legend=Months,20,#000000&',
+                  '&x_label_style=10,#784016,0,1&',
                 );
-    is_deeply( [ $axis->ofc_data_lines() ], \@lines,
+    is_deeply( [ $axis->_ofc_data_lines() ], \@lines,
                'data lines with defaults and label' );
 }
 
@@ -31,19 +31,19 @@ like( $@, qr/\Q(axis_label) is required/, 'axis_label is required for constructo
     my $axis = Chart::OFC::XAxis->new( axis_label => $axis_label );
 
     my @lines = ( '&x_legend=Months,10,#FF0000&',
-                  '&x_label_style=10,#000000,0,1,#000000&',
+                  '&x_label_style=10,#784016,0,1&',
                 );
-    is_deeply( [ $axis->ofc_data_lines() ], \@lines,
+    is_deeply( [ $axis->_ofc_data_lines() ], \@lines,
                'data lines with all-params axis_label' );
 }
 
 {
     my $axis = Chart::OFC::XAxis->new( axis_label => 'Months' );
 
-    my @lines = ( '&x_legend=Months,-1,#000000&',
-                  '&x_label_style=10,#000000,0,1,#000000&',
+    my @lines = ( '&x_legend=Months,20,#000000&',
+                  '&x_label_style=10,#784016,0,1&',
                 );
-    is_deeply( [ $axis->ofc_data_lines() ], \@lines,
+    is_deeply( [ $axis->_ofc_data_lines() ], \@lines,
                'string -> axis_label coercion' );
 }
 
@@ -51,9 +51,9 @@ like( $@, qr/\Q(axis_label) is required/, 'axis_label is required for constructo
     my $axis = Chart::OFC::XAxis->new( axis_label => { label => 'Months', text_size => 15 } );
 
     my @lines = ( '&x_legend=Months,15,#000000&',
-                  '&x_label_style=10,#000000,0,1,#000000&',
+                  '&x_label_style=10,#784016,0,1&',
                 );
-    is_deeply( [ $axis->ofc_data_lines() ], \@lines,
+    is_deeply( [ $axis->_ofc_data_lines() ], \@lines,
                'hashref -> axis_label coercion' );
 }
 
@@ -70,13 +70,13 @@ like( $@, qr/\Q(axis_label) is required/, 'axis_label is required for constructo
                                 orientation    => 'diagonal',
                               );
 
-    my @lines = ( '&x_legend=Months,-1,#000000&',
+    my @lines = ( '&x_legend=Months,20,#000000&',
                   '&x_labels=jan,feb,mar,apr,may,jun,jul,aug,sep,oct,nov,dec&',
                   '&x_label_style=7,#0000FF,2,4,#FFA500&',
                   '&x_ticks=2&',
                   '&x_axis_3d=5&',
                   '&x_axis_steps=2&',
                 );
-    is_deeply( [ $axis->ofc_data_lines() ], \@lines,
+    is_deeply( [ $axis->_ofc_data_lines() ], \@lines,
                'x axis with all attributes set' );
 }

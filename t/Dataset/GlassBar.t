@@ -16,8 +16,8 @@ use Chart::OFC::Dataset::GlassBar;
                  '&values=1,2&',
                );
 
-    is_deeply( [ $bar->ofc_data_lines() ], \@data,
-               'check ofc_data_lines output' );
+    is_deeply( [ $bar->_ofc_data_lines() ], \@data,
+               'check _ofc_data_lines output' );
 }
 
 {
@@ -33,6 +33,6 @@ use Chart::OFC::Dataset::GlassBar;
                  '&values_2=1,2&',
                );
 
-    is_deeply( [ $bar->ofc_data_lines(2) ], \@data,
-               'check ofc_data_lines output' );
+    is_deeply( [ $bar->_ofc_data_lines(2) ], \@data,
+               'check _ofc_data_lines output' );
 }

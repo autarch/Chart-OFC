@@ -8,7 +8,7 @@ use Chart::OFC::Grid;
 
 
 my @datasets =
-    Chart::OFC::Dataset::FilledBar->new( values        => [ 1 .. 5 ],
+    Chart::OFC::Dataset::OutlinedBar->new( values        => [ 1 .. 5 ],
                                          opacity       => 50,
                                          outline_color => 'blue',
                                          fill_color    => 'green',
@@ -35,14 +35,14 @@ my $x_axis = Chart::OFC::XAxis->new( labels      => [ 'a'..'e' ],
                                      orientation => 'diagonal',
                                    );
 
-my $y_axis = Chart::OFC::YAxis->new( axis_label => 'Y Axis',
-                                     min        => 20,
-                                     max        => 100,
-                                     tick_steps => 20,
+my $y_axis = Chart::OFC::YAxis->new( axis_label  => 'Y Axis',
+                                     min         => 20,
+                                     max         => 100,
+                                     label_steps => 20,
                                    );
 
 my $chart = Chart::OFC::Grid->new( title       => 'Complex Grid Test',
-                                   title_style => '{ font-size: 25px }',
+                                   title_style => 'font-size: 25px',
                                    bg_color    => 'black',
                                    datasets    => \@datasets,
                                    x_axis      => $x_axis,
@@ -51,11 +51,11 @@ my $chart = Chart::OFC::Grid->new( title       => 'Complex Grid Test',
 
 my @data = ( '&title=Complex Grid Test,{ font-size: 25px }&',
              '&bg_colour=#000000&',
-             $x_axis->ofc_data_lines(),
-             $y_axis->ofc_data_lines(),
-             $datasets[0]->ofc_data_lines(1),
-             $datasets[1]->ofc_data_lines(2),
-             $datasets[2]->ofc_data_lines(3),
+             $x_axis->_ofc_data_lines(),
+             $y_axis->_ofc_data_lines(),
+             $datasets[0]->_ofc_data_lines(1),
+             $datasets[1]->_ofc_data_lines(2),
+             $datasets[2]->_ofc_data_lines(3),
            );
 
 my $data = join '', map { $_ . "\r\n" } @data;

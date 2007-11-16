@@ -8,12 +8,12 @@ use Chart::OFC::Dataset::Line;
 {
     my $bar = Chart::OFC::Dataset::Line->new( values => [ 1, 2 ],
                                            );
-    my @data = ( '&line=1,#000000&',
+    my @data = ( '&line=2,#000000&',
                  '&values=1,2&',
                );
 
-    is_deeply( [ $bar->ofc_data_lines() ], \@data,
-               'check ofc_data_lines output - no label' );
+    is_deeply( [ $bar->_ofc_data_lines() ], \@data,
+               'check _ofc_data_lines output - no label' );
 }
 
 {
@@ -21,24 +21,25 @@ use Chart::OFC::Dataset::Line;
                                               label     => 'Intensity',
                                               text_size => 5,
                                            );
-    my @data = ( '&line=1,#000000,Intensity,5&',
+    my @data = ( '&line=2,#000000,Intensity,5&',
                  '&values=1,2&',
                );
 
-    is_deeply( [ $bar->ofc_data_lines() ], \@data,
-               'check ofc_data_lines output - labeled' );
+    is_deeply( [ $bar->_ofc_data_lines() ], \@data,
+               'check _ofc_data_lines output - labeled' );
 }
 
 {
     my $bar = Chart::OFC::Dataset::Line->new( values    => [ 1, 2 ],
+                                              width     => 3,
                                               label     => 'Intensity',
                                               text_size => 5,
                                               color     => 'red',
                                            );
-    my @data = ( '&line=1,#FF0000,Intensity,5&',
+    my @data = ( '&line=3,#FF0000,Intensity,5&',
                  '&values=1,2&',
                );
 
-    is_deeply( [ $bar->ofc_data_lines() ], \@data,
-               'check ofc_data_lines output - all parameters' );
+    is_deeply( [ $bar->_ofc_data_lines() ], \@data,
+               'check _ofc_data_lines output - all parameters' );
 }
