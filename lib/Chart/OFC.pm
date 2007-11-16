@@ -135,6 +135,10 @@ need to embed the OFC flash in something and feed it the data to
 actually make a chart. This library does not generate Flash or HTML or
 anything like that.
 
+This library was tested with OFC 1.9.5, and follows the format defined
+for that version. The flash binary and the ActionScript source for
+that version are provided in this distributions ofc
+
 =head2 Classes
 
 The functionality for generating charts is split across a number of
@@ -269,6 +273,8 @@ This distribution does not yet support all of the features of OFC.
 
 There are a few items left to do, notably grid charts with 2 Y axes,
 and background images.
+
+There are some new chart types in OFC 1.9.5 which are not supported.
 
 It would also be nice to generate embeddable Javascript for populating
 charts, since this lets you create a chart without making an
