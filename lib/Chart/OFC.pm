@@ -3,7 +3,7 @@ package Chart::OFC;
 use strict;
 use warnings;
 
-our $VERSION = '0.01';
+our $VERSION = '0.02';
 
 use MooseX::StrictConstructor;
 use Chart::OFC::Types;
