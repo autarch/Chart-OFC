@@ -124,11 +124,16 @@ data with a high level API.
 OFC can display pie charts, lines and/or bars on a grid, and area
 charts on a grid.
 
-If you haven't explored OFC much, you might want to stop now and go
-the OFC home page at
-http://teethgrinder.co.uk/open-flash-chart/. There are many examples
-of what it can do there, and seeing them might help you understand how
-you can use this library in your own applications.
+If you haven't explored OFC yet, you might want to stop now and go the
+OFC home page at http://teethgrinder.co.uk/open-flash-chart/. There
+are many examples of what it can do with OFC there, and seeing them
+will help you understand exactly what kind of charts you want to
+generate with this library.
+
+Also note that this library simply generates data for OFC. You still
+need to embed the OFC flash in something and feed it the data to
+actually make a chart. This library does not generate Flash or HTML or
+anything like that.
 
 =head2 Classes
 
