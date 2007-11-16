@@ -136,8 +136,8 @@ actually make a chart. This library does not generate Flash or HTML or
 anything like that.
 
 This library was tested with OFC 1.9.5, and follows the format defined
-for that version. The flash binary and the ActionScript source for
-that version are provided in this distributions ofc
+for that version. The OFC zip file is included in this distribution's
+tarball, under the F<ofc> directory.
 
 =head2 Classes
 
