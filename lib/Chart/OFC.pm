@@ -170,6 +170,11 @@ look of the bars.
 
 Formats your data as a line, with optional dots marking each value.
 
+=item * Chart::OFC::Dataset::Area
+
+Like a line with dots, but this dataset also fills in the area between
+the line and the X axis with a color.
+
 =back
 
 =head3 Axes and Axis Labels
@@ -257,8 +262,8 @@ This class does the C<Chart::OFC::Role::OFCDataLines> role.
 
 This distribution does not yet support all of the features of OFC.
 
-There are a few items left to do, notably area datasets, grid charts
-with 2 Y axes, and background images.
+There are a few items left to do, notably grid charts with 2 Y axes,
+and background images.
 
 It would also be nice to generate embeddable Javascript for populating
 charts, since this lets you create a chart without making an
