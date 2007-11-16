@@ -115,7 +115,8 @@ enum 'Orientation' => qw( horizontal vertical diagonal );
 {
     # Monkey-patch to shut up an annoying warning!
 
-    package Graphics::ColorNames; ## no critic ProhibitMultiplePackages
+    package                   ## no critic ProhibitMultiplePackages
+        Graphics::ColorNames;
 
     no warnings 'redefine'; ## no critic ProhibitNoWarnings
     sub hex { ## no critic ProhibitBuiltinHomonyms
