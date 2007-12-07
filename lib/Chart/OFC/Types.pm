@@ -5,16 +5,15 @@ use warnings;
 
 use Graphics::ColorNames;
 use List::MoreUtils qw( any );
-use MooseX::Types -declare => [ 'NonEmptyArrayRef' ];
-use MooseX::Types::Moose qw( Str Int ArrayRef HashRef Object );
+use Moose::Util::TypeConstraints;
 
 subtype 'Color'
-    => as Str,
+    => as 'Str',
     => where { ( uc $_ ) =~ /^\#[0-9A-F]{6}$/ }
     => message { "$_ is not a valid six-digit hex color" };
 
 coerce 'Color'
-    => from Str
+    => from 'Str'
     => via \&_name_to_hex_color;
 
 {
@@ -27,7 +26,7 @@ coerce 'Color'
 }
 
 subtype 'NonEmptyArrayRef'
-    => as ArrayRef
+    => as 'ArrayRef'
     => where { return scalar @{ $_ } > 0 };
 
 {
@@ -59,7 +58,7 @@ subtype 'NonEmptyArrayRef'
     unless ( find_type_constraint('Chart::OFC::Dataset' ) )
     {
         subtype 'Chart::OFC::Dataset'
-            => as Object
+            => as 'Object'
             => where { $_->isa('Chart::OFC::Dataset') };
     }
 
@@ -76,38 +75,33 @@ subtype 'NonEmptyArrayRef'
 unless ( find_type_constraint('Chart::OFC::AxisLabel' ) )
 {
     subtype 'Chart::OFC::AxisLabel'
-        => as Object
+        => as 'Object'
         => where { $_->isa('Chart::OFC::AxisLabel') };
 }
 
 coerce 'Chart::OFC::AxisLabel'
-    => from HashRef
+    => from 'HashRef'
     => via { Chart::OFC::AxisLabel->new( %{ $_ } ) }
-    => from Str
+    => from 'Str'
     => via { Chart::OFC::AxisLabel->new( label => $_ ) };
 
 subtype 'Angle'
-    => as Int,
+    => as 'Int'
     => where  { $_ >= 0 && $_ <= 359 }
     => message { "$_ is not a number from 0-359" };
 
 subtype 'Opacity'
-    => as Int,
+    => as 'Int'
     => where { $_ >= 0 && $_ <= 100 }
     => message { "$_ is not a number from 0-100" };
 
 subtype 'PosInt'
-    => as Int,
+    => as 'Int'
     => where  { $_ > 0 }
     => message { 'must be a positive integer' };
 
 subtype 'Size'
     => as 'PosInt';
-
-subtype 'PosNum'
-    => as Int,
-    => where  { $_ > 0 }
-    => message { 'must be a positive number' };
 
 enum 'Orientation' => qw( horizontal vertical diagonal );
 

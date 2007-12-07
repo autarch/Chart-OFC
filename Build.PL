@@ -9,7 +9,6 @@ my $builder = Module::Build->new
       requires             => { 'Graphics::ColorNames'      => 0,
                                 'Moose'                     => 0,
                                 'MooseX::StrictConstructor' => 0.02,
-                                'MooseX::Types'             => 0,
                               },
       build_requires       => { 'Test::More' => 0,
                               },
