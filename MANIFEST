@@ -37,6 +37,7 @@ t/Dataset/LineWithDots.t
 t/Dataset/OutlinedBar.t
 t/Grid-mixed.t
 t/Grid.t
+t/kwalitee.t
 t/OFC.t
 t/perlcritic.t
 t/Pie.t
