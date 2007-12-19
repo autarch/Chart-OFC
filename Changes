@@ -1,3 +1,11 @@
+0.03   2007-12-18
+
+- Previous releases were missing a prereq declaration for
+  List::MoreUtils.
+
+- No code changes in this release.
+
+
 0.02   2007-11-16
 
 - This release is identical to 0.01, but should hide my monkey patch
