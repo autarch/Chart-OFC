@@ -20,10 +20,6 @@ has dot_size =>
       default => 5,
     );
 
-no Moose;
-__PACKAGE__->meta()->make_immutable();
-
-
 sub type
 {
     my $self = shift;
@@ -42,6 +38,8 @@ sub _line_parameters
     return @p;
 }
 
+no Moose;
+__PACKAGE__->meta()->make_immutable();
 
 1;
 

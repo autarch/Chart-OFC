@@ -23,6 +23,7 @@ sub _data_line ## no critic RequireArgUnpacking
     return $line;
 }
 
+no Moose::Role;
 
 1;
 

@@ -39,10 +39,6 @@ has label_steps =>
       required => 1,
     );
 
-no Moose;
-__PACKAGE__->meta()->make_immutable();
-
-
 sub _ofc_data_lines
 {
     my $self = shift;
@@ -73,6 +69,8 @@ sub _ofc_data_lines
     return @lines;
 }
 
+no Moose;
+__PACKAGE__->meta()->make_immutable();
 
 1;
 

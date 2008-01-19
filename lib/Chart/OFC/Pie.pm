@@ -75,10 +75,8 @@ override _ofc_data_lines => sub
         );
 };
 
-
 no Moose;
 __PACKAGE__->meta()->make_immutable();
-
 
 1;
 

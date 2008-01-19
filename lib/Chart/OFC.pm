@@ -37,10 +37,6 @@ has bg_color =>
       predicate => '_has_bg_color',
     );
 
-no Moose;
-__PACKAGE__->meta()->make_immutable();
-
-
 {
     my $CRLF = "\r\n";
     sub as_ofc_data
@@ -94,6 +90,8 @@ require Chart::OFC::Dataset::GlassBar;
 require Chart::OFC::Dataset::Line;
 require Chart::OFC::Dataset::LineWithDots;
 
+no Moose;
+__PACKAGE__->meta()->make_immutable();
 
 1;
 

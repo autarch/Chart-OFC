@@ -8,15 +8,13 @@ use Chart::OFC::Types;
 
 extends 'Chart::OFC::Dataset::OutlinedBar';
 
-no Moose;
-__PACKAGE__->meta()->make_immutable();
-
-
 sub type
 {
     return 'bar_glass';
 }
 
+no Moose;
+__PACKAGE__->meta()->make_immutable();
 
 1;
 

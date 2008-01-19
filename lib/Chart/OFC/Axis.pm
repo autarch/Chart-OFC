@@ -42,12 +42,10 @@ has axis_label =>
       required => 1,
     );
 
-no Moose;
-__PACKAGE__->meta()->make_immutable();
-
-
 sub _ofc_data_lines { die 'This is a virtual method' }
 
+no Moose;
+__PACKAGE__->meta()->make_immutable();
 
 1;
 

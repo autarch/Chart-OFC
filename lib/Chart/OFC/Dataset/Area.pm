@@ -27,11 +27,6 @@ has fill_color =>
       predicate => '_has_fill_color',
     );
 
-
-no Moose;
-__PACKAGE__->meta()->make_immutable();
-
-
 sub type
 {
     return 'area_hollow';
@@ -52,6 +47,8 @@ sub _line_parameters
     return @p;
 }
 
+no Moose;
+__PACKAGE__->meta()->make_immutable();
 
 1;
 

@@ -39,10 +39,6 @@ has orientation =>
       default => 'horizontal',
     );
 
-no Moose;
-__PACKAGE__->meta()->make_immutable();
-
-
 my %Orientation = ( horizontal => 0,
                     vertical   => 1,
                     diagonal   => 2,
@@ -79,6 +75,8 @@ sub _ofc_data_lines
     return @lines;
 }
 
+no Moose;
+__PACKAGE__->meta()->make_immutable();
 
 1;
 

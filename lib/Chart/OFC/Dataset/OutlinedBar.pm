@@ -15,10 +15,6 @@ has outline_color =>
       default => '#000000',
     );
 
-no Moose;
-__PACKAGE__->meta()->make_immutable();
-
-
 sub type
 {
     return 'filled_bar';
@@ -35,6 +31,8 @@ sub _bar_parameters
     return @p;
 }
 
+no Moose;
+__PACKAGE__->meta()->make_immutable();
 
 1;
 

@@ -27,10 +27,6 @@ has text_size =>
       default => 20,
     );
 
-no Moose;
-__PACKAGE__->meta()->make_immutable();
-
-
 sub _ofc_data_lines
 {
     my $self = shift;
@@ -39,6 +35,8 @@ sub _ofc_data_lines
     return $self->_data_line( $name . '_legend', $self->label(), $self->text_size(), $self->text_color() );
 }
 
+no Moose;
+__PACKAGE__->meta()->make_immutable();
 
 1;
 

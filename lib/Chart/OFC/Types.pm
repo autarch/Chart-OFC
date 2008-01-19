@@ -135,6 +135,7 @@ enum 'Orientation' => qw( horizontal vertical diagonal );
     }
 }
 
+no Moose::Util::TypeConstraints;
 
 1;
 

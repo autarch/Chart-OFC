@@ -42,11 +42,6 @@ has text_size =>
       default => 10,
     );
 
-
-no Moose;
-__PACKAGE__->meta()->make_immutable();
-
-
 sub type
 {
     return 'line';
@@ -82,6 +77,8 @@ sub _line_parameters
     return @p;
 }
 
+no Moose;
+__PACKAGE__->meta()->make_immutable();
 
 1;
 

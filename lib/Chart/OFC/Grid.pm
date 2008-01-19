@@ -95,10 +95,8 @@ sub _inner_background_line
     return $self->_data_line( 'inner_background', @vals );
 }
 
-
 no Moose;
 __PACKAGE__->meta()->make_immutable();
-
 
 1;
 
