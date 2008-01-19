@@ -1,7 +1,7 @@
 use strict;
 use warnings;
 
-use Test::More tests => 10;
+use Test::More tests => 11;
 
 use Chart::OFC::Grid;
 use Chart::OFC::Dataset::Bar;
@@ -66,6 +66,23 @@ like( $@, qr/\Q(datasets) is required/, 'datasets is required for constructor' )
         'check as_ofc_data output' );
 }
 
+{
+    my $chart = Chart::OFC::Grid->new( title    => 'Grid Test, Comma in Title',
+                                       datasets => \@datasets,
+                                       x_axis   => $x_axis,
+                                       y_axis   => $y_axis,
+                                     );
+
+    my @data = ( '&title=Grid Test#comma# Comma in Title,{ font-size: 25px }&',
+                 $x_axis->_ofc_data_lines(),
+                 $y_axis->_ofc_data_lines(),
+                 $datasets[0]->_ofc_data_lines(1),
+               );
+
+    my $data = join '', map { $_ . "\r\n" } @data;
+    is( $chart->as_ofc_data(), $data,
+        'check as_ofc_data output' );
+}
 
 {
     my $chart = Chart::OFC::Grid->new( title               => 'Grid Test',

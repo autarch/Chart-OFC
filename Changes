@@ -3,6 +3,10 @@
 * This release requires Open Flash Chart 1.9.6 in order to function
   100% properly. Use it with older versions at your own risk of bugs.
 
+- OFC 1.9.6 allows commas in text to be escaped so that they do not
+  interfere with the data formatting (which is
+  comma-separated). Chart::OFC now does this escaping.
+
 - Allow Line datasets to contain undef in the values array. These will
   simply be skipped in the resulting line. Based on a patch from Brett
   Gardner.

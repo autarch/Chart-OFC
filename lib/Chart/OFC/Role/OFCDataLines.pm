@@ -17,10 +17,20 @@ sub _data_line ## no critic RequireArgUnpacking
     $label =~ s/color/colour/;
 
     my $line = q{&} . $label . q{=};
-    $line .= join ',', map { defined $_ ? $_ : 'null' } @vals;
+    $line .= join ',', map { defined $_ ? $self->_escape($_) : 'null' } @vals;
     $line .= q{&};
 
     return $line;
+}
+
+sub _escape
+{
+    shift;
+    my $string = shift;
+
+    $string =~ s/,/#comma#/g;
+
+    return $string;
 }
 
 no Moose::Role;
