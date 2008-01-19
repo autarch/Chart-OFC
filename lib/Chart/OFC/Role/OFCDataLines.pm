@@ -17,7 +17,7 @@ sub _data_line ## no critic RequireArgUnpacking
     $label =~ s/color/colour/;
 
     my $line = q{&} . $label . q{=};
-    $line .= join ',', @vals;
+    $line .= join ',', map { defined $_ ? $_ : 'null' } @vals;
     $line .= q{&};
 
     return $line;

@@ -1,3 +1,13 @@
+0.04   2008-01-19
+
+- Allow Line datasets to contain undef in the values array. These will
+  simply be skipped in the resulting line. Based on a patch from Brett
+  Gardner.
+
+- Fixed a doc error that set Dataset was a subclass of a nonexistent
+  class. Reported by Ron Savage. RT #32113.
+
+
 0.03   2007-12-18
 
 - Previous releases were missing a prereq declaration for

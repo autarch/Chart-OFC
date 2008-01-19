@@ -1,7 +1,7 @@
 use strict;
 use warnings;
 
-use Test::More tests => 3;
+use Test::More tests => 4;
 
 use Chart::OFC::Dataset::Line;
 
@@ -42,4 +42,17 @@ use Chart::OFC::Dataset::Line;
 
     is_deeply( [ $bar->_ofc_data_lines() ], \@data,
                'check _ofc_data_lines output - all parameters' );
+}
+
+{
+    my $bar = Chart::OFC::Dataset::Line->new( values => [ 1, 2, undef, 3 ],
+                                              width  => 2,
+                                              color  => 'red',
+                                            );
+    my @data = ( '&line=2,#FF0000&',
+                 '&values=1,2,null,3&',
+               );
+
+    is_deeply( [ $bar->_ofc_data_lines() ], \@data,
+               q{check _ofc_Data_lines output with some values as 'null'} );
 }

@@ -37,6 +37,12 @@ subtype 'NonEmptyArrayRef'
         => where { return 0 if any { ! $constraint->check($_) } @{ $_ };
                    return 1; }
         => message { 'array reference cannot be empty' };
+
+    subtype 'NonEmptyArrayRefOfNumsOrUndefs'
+        => as 'NonEmptyArrayRef',
+        => where { return 0 if any { defined && ! $constraint->check($_) } @{ $_ };
+                   return 1; }
+        => message { 'array reference cannot be empty and must contain numbers or undef' };
 }
 
 {
