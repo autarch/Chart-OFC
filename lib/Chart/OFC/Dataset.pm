@@ -42,9 +42,6 @@ Chart::OFC::Dataset - A set of values to be charted
 This class represents a set of values that will be charted along the X
 axis of a chart (or as pie slices).
 
-It is a subclass of C<Chart::OFC::Bar> and accepts all of that class's
-attributes as well as its own.
-
 =head1 ATTRIBUTES
 
 This class has one attribute which may be passed to the C<new()>
