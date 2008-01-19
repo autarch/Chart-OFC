@@ -170,8 +170,10 @@ used with pie charts.
 
 =item * Chart::OFC::Dataset::3DBar
 
-Formats your data as a set of bars. There are many variations on the
-look of the bars.
+=item * Chart::OFC::Dataset::SketchBar
+
+Formats your data as a set of bars. There are many different styles of
+bars.
 
 =item * Chart::OFC::Dataset::Line
 

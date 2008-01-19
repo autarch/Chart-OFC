@@ -7,6 +7,9 @@
 - Fixed a doc error that set Dataset was a subclass of a nonexistent
   class. Reported by Ron Savage. RT #32113.
 
+- Added Chart::OFC::Dataset::SketchBar to support the new sketch bar
+  style in OFC 1.9.6.
+
 
 0.03   2007-12-18
 

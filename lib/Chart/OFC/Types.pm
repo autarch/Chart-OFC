@@ -106,6 +106,11 @@ subtype 'PosInt'
     => where  { $_ > 0 }
     => message { 'must be a positive integer' };
 
+subtype 'PosOrZeroInt'
+    => as 'Int'
+    => where  { $_ >= 0 }
+    => message { 'must be an integer greater than or equal to zero' };
+
 subtype 'Size'
     => as 'PosInt';
 
