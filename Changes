@@ -1,5 +1,8 @@
 0.04   2008-01-19
 
+* This release requires Open Flash Chart 1.9.6 in order to function
+  100% properly. Use it with older versions at your own risk of bugs.
+
 - Allow Line datasets to contain undef in the values array. These will
   simply be skipped in the resulting line. Based on a patch from Brett
   Gardner.
