@@ -66,7 +66,7 @@ sub _ofc_data_lines
     push @lines, $self->_data_line( 'x_axis_3d', $self->three_d_height() )
         if $self->_has_three_d_height();
 
-    push @lines, $self->_data_line( 'x_axis_color', $self->x_axis_color() )
+    push @lines, $self->_data_line( 'x_axis_color', $self->axis_color() )
         if $self->_has_axis_color();
 
     push @lines, $self->_data_line( 'x_axis_steps', $self->tick_steps() )

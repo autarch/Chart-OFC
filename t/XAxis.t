@@ -60,6 +60,7 @@ like( $@, qr/\Q(axis_label) is required/, 'axis_label is required for constructo
 {
     my $axis =
         Chart::OFC::XAxis->new( axis_label     => 'Months',
+                                axis_color     => 'blue',
                                 label_steps    => 4,
                                 tick_steps     => 2,
                                 text_size      => 7,
@@ -75,6 +76,7 @@ like( $@, qr/\Q(axis_label) is required/, 'axis_label is required for constructo
                   '&x_label_style=7,#0000FF,2,4,#FFA500&',
                   '&x_ticks=2&',
                   '&x_axis_3d=5&',
+                  '&x_axis_colour=#0000FF&',
                   '&x_axis_steps=2&',
                 );
     is_deeply( [ $axis->_ofc_data_lines() ], \@lines,

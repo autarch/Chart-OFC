@@ -1,3 +1,10 @@
+0.05   2008-01-25
+
+- Fixed axis_color for Chart::OFC::XAxis color. Setting this caused an
+  exception when you later called as_ofc_data() on your
+  chart. Reported by Ovid. RT #32576.
+
+
 0.04   2008-01-19
 
 * This release requires Open Flash Chart 1.9.6 in order to function
