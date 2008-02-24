@@ -7,11 +7,11 @@ use Chart::OFC::Dataset::Bar;
 
 
 eval { Chart::OFC::Dataset::Bar->new( values => [ 1, 2 ], labels => [ 'a', 'b' ], text_size => 0 ) };
-like( $@, qr/\Q(text_size) does not pass the type constraint (Size)/,
+like( $@, qr/\Q(text_size) does not pass the type constraint/,
       'text_size cannot be 0' );
 
 eval { Chart::OFC::Dataset::Bar->new( values => [ 1, 2 ], labels => [ 'a', 'b' ], text_size => -2 ) };
-like( $@, qr/\Q(text_size) does not pass the type constraint (Size)/,
+like( $@, qr/\Q(text_size) does not pass the type constraint/,
       'text_size cannot be -2' );
 
 {

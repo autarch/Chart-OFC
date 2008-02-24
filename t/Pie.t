@@ -13,11 +13,11 @@ like( $@, qr/\Q(dataset) is required/, 'data_set is required for constructor' );
 my $set = Chart::OFC::Dataset->new( values => [ 1..10 ] );
 
 eval { Chart::OFC::Pie->new( dataset => $set, labels => [ 'a'..'j' ], slice_colors => [] ) };
-like( $@, qr/\Qpass the type constraint (NonEmptyArrayRefOfColors)/,
+like( $@, qr/\Qpass the type constraint/,
       'cannot pass an empty array ref for slice_colors' );
 
 eval { Chart::OFC::Pie->new( dataset => $set, labels => [ 'a'..'j' ], slice_colors => [ 'not a color' ] ) };
-like( $@, qr/\Qpass the type constraint (NonEmptyArrayRefOfColors)/,
+like( $@, qr/\Qpass the type constraint/,
       'cannot pass a bad color in slice_colors' );
 
 my $pie = Chart::OFC::Pie->new( title => 'Pie Test', dataset => $set, labels => [ 'a'..'j' ] );

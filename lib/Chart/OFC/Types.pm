@@ -36,7 +36,7 @@ subtype 'NonEmptyArrayRef'
         => as 'NonEmptyArrayRef',
         => where { return 0 if any { ! $constraint->check($_) } @{ $_ };
                    return 1; }
-        => message { 'array reference cannot be empty' };
+        => message { 'array reference must contain only numbers and cannot be empty' };
 
     subtype 'NonEmptyArrayRefOfNumsOrUndefs'
         => as 'NonEmptyArrayRef',

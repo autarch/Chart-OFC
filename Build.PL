@@ -8,7 +8,7 @@ my $builder = Module::Build->new
       license              => 'perl',
       requires             => { 'Graphics::ColorNames'      => 0,
                                 'List::MoreUtils'           => 0,
-                                'Moose'                     => 0,
+                                'Moose'                     => 0.38,
                                 'MooseX::StrictConstructor' => 0.02,
                               },
       build_requires       => { 'Test::More' => 0,

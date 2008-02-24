@@ -11,10 +11,10 @@ use Chart::OFC::Dataset;
     like( $@, qr/\Q(values) is required/, 'values is required for constructor' );
 
     eval { Chart::OFC::Dataset->new( values => [] ) };
-    like( $@, qr/\Qpass the type constraint (NonEmptyArrayRefOfNums)/, 'values cannot be empty' );
+    like( $@, qr/\Qpass the type constraint\E.+\Qcannot be empty/, 'values cannot be empty' );
 
     eval { Chart::OFC::Dataset->new( values => [ 1, 2, 'a' ] ) };
-    like( $@, qr/\Qpass the type constraint (NonEmptyArrayRefOfNums)/, 'values must all be numbers' );
+    like( $@, qr/\Qpass the type constraint\E.+\Qcontain only numbers/, 'values must all be numbers' );
 }
 
 {
