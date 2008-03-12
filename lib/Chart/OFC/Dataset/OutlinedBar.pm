@@ -10,7 +10,7 @@ extends 'Chart::OFC::Dataset::Bar';
 
 has outline_color =>
     ( is      => 'ro',
-      isa     => 'Color',
+      isa     => 'Chart::OFC::Type::Color',
       coerce  => 1,
       default => '#000000',
     );

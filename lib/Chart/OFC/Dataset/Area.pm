@@ -10,19 +10,19 @@ extends 'Chart::OFC::Dataset::Line';
 
 has dot_size =>
     ( is      => 'ro',
-      isa     => 'PosInt',
+      isa     => 'Chart::OFC::Type::PosInt',
       default => 5,
     );
 
 has opacity =>
     ( is         => 'ro',
-      isa        => 'Opacity',
+      isa        => 'Chart::OFC::Type::Opacity',
       default    => '80',
     );
 
 has fill_color =>
     ( is        => 'ro',
-      isa       => 'Color',
+      isa       => 'Chart::OFC::Type::Color',
       coerce    => 1,
       predicate => '_has_fill_color',
     );

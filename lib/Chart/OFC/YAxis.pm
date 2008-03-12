@@ -35,7 +35,7 @@ has large_tick_size =>
 
 has label_steps =>
     ( is       => 'ro',
-      isa      => 'PosInt',
+      isa      => 'Chart::OFC::Type::PosInt',
       required => 1,
     );
 

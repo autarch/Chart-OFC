@@ -16,7 +16,7 @@ has solid_dots =>
 
 has dot_size =>
     ( is      => 'ro',
-      isa     => 'PosInt',
+      isa     => 'Chart::OFC::Type::PosInt',
       default => 5,
     );
 

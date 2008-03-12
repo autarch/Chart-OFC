@@ -16,21 +16,21 @@ has text_size =>
 
 has text_color =>
     ( is      => 'ro',
-      isa     => 'Color',
+      isa     => 'Chart::OFC::Type::Color',
       coerce  => 1,
       default => '#784016'
     );
 
 has axis_color =>
     ( is        => 'ro',
-      isa       => 'Color',
+      isa       => 'Chart::OFC::Type::Color',
       coerce    => 1,
       predicate => '_has_axis_color',
     );
 
 has grid_color =>
     ( is        => 'ro',
-      isa       => 'Color',
+      isa       => 'Chart::OFC::Type::Color',
       coerce    => 1,
       predicate => '_has_grid_color',
     );

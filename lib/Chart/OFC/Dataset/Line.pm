@@ -12,20 +12,20 @@ extends 'Chart::OFC::Dataset';
 # type in the parent class.
 has 'values' =>
     ( is         => 'ro',
-      isa        => 'NonEmptyArrayRefOfNumsOrUndefs',
+      isa        => 'Chart::OFC::Type::NonEmptyArrayRefOfNumsOrUndefs',
       required   => 1,
       auto_deref => 1,
     );
 
 has width =>
     ( is      => 'ro',
-      isa     => 'PosInt',
+      isa     => 'Chart::OFC::Type::PosInt',
       default => 2,
     );
 
 has color =>
     ( is      => 'ro',
-      isa     => 'Color',
+      isa     => 'Chart::OFC::Type::Color',
       coerce  => 1,
       default => '#000000',
     );
@@ -38,7 +38,7 @@ has label =>
 
 has text_size =>
     ( is      => 'ro',
-      isa     => 'Size',
+      isa     => 'Chart::OFC::Type::Size',
       default => 10,
     );
 

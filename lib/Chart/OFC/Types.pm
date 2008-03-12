@@ -7,12 +7,12 @@ use Graphics::ColorNames;
 use List::MoreUtils qw( any );
 use Moose::Util::TypeConstraints;
 
-subtype 'Color'
+subtype 'Chart::OFC::Type::Color'
     => as 'Str',
     => where { ( uc $_ ) =~ /^\#[0-9A-F]{6}$/ }
     => message { "$_ is not a valid six-digit hex color" };
 
-coerce 'Color'
+coerce 'Chart::OFC::Type::Color'
     => from 'Str'
     => via \&_name_to_hex_color;
 
@@ -25,37 +25,37 @@ coerce 'Color'
     }
 }
 
-subtype 'NonEmptyArrayRef'
+subtype 'Chart::OFC::Type::NonEmptyArrayRef'
     => as 'ArrayRef'
     => where { return scalar @{ $_ } > 0 };
 
 {
     my $constraint = find_type_constraint('Num');
 
-    subtype 'NonEmptyArrayRefOfNums'
-        => as 'NonEmptyArrayRef',
+    subtype 'Chart::OFC::Type::NonEmptyArrayRefOfNums'
+        => as 'Chart::OFC::Type::NonEmptyArrayRef',
         => where { return 0 if any { ! $constraint->check($_) } @{ $_ };
                    return 1; }
         => message { 'array reference must contain only numbers and cannot be empty' };
 
-    subtype 'NonEmptyArrayRefOfNumsOrUndefs'
-        => as 'NonEmptyArrayRef',
+    subtype 'Chart::OFC::Type::NonEmptyArrayRefOfNumsOrUndefs'
+        => as 'Chart::OFC::Type::NonEmptyArrayRef',
         => where { return 0 if any { defined && ! $constraint->check($_) } @{ $_ };
                    return 1; }
         => message { 'array reference cannot be empty and must contain numbers or undef' };
 }
 
 {
-    my $constraint = find_type_constraint('Color');
+    my $constraint = find_type_constraint('Chart::OFC::Type::Color');
 
-    subtype 'NonEmptyArrayRefOfColors'
-        => as 'NonEmptyArrayRef',
+    subtype 'Chart::OFC::Type::NonEmptyArrayRefOfColors'
+        => as 'Chart::OFC::Type::NonEmptyArrayRef',
         => where { return 0 unless @{ $_ } > 0;
                    return 0 if any { ! $constraint->check($_) } @{ $_ };
                    return 1; }
         => message { 'array reference cannot be empty and must be a list of colors' };
 
-    coerce 'NonEmptyArrayRefOfColors'
+    coerce 'Chart::OFC::Type::NonEmptyArrayRefOfColors'
         => from 'ArrayRef'
         => via { [ map { $constraint->coerce($_) } @{ $_ } ] };
 }
@@ -70,8 +70,8 @@ subtype 'NonEmptyArrayRef'
 
     my $constraint = find_type_constraint('Chart::OFC::Dataset');
 
-    subtype 'NonEmptyArrayRefOfTypedDatasets'
-        => as 'NonEmptyArrayRef',
+    subtype 'Chart::OFC::Type::NonEmptyArrayRefOfTypedDatasets'
+        => as 'Chart::OFC::Type::NonEmptyArrayRef',
         => where { return 0 unless @{ $_ } > 0;
                    return 0 if any { ! ( $constraint->check($_) && $_->can('type') ) } @{ $_ };
                    return 1; }
@@ -91,30 +91,30 @@ coerce 'Chart::OFC::AxisLabel'
     => from 'Str'
     => via { Chart::OFC::AxisLabel->new( label => $_ ) };
 
-subtype 'Angle'
+subtype 'Chart::OFC::Type::Angle'
     => as 'Int'
     => where  { $_ >= 0 && $_ <= 359 }
     => message { "$_ is not a number from 0-359" };
 
-subtype 'Opacity'
+subtype 'Chart::OFC::Type::Opacity'
     => as 'Int'
     => where { $_ >= 0 && $_ <= 100 }
     => message { "$_ is not a number from 0-100" };
 
-subtype 'PosInt'
+subtype 'Chart::OFC::Type::PosInt'
     => as 'Int'
     => where  { $_ > 0 }
     => message { 'must be a positive integer' };
 
-subtype 'PosOrZeroInt'
+subtype 'Chart::OFC::Type::PosOrZeroInt'
     => as 'Int'
     => where  { $_ >= 0 }
     => message { 'must be an integer greater than or equal to zero' };
 
-subtype 'Size'
-    => as 'PosInt';
+subtype 'Chart::OFC::Type::Size'
+    => as 'Chart::OFC::Type::PosInt';
 
-enum 'Orientation' => qw( horizontal vertical diagonal );
+enum 'Chart::OFC::Type::Orientation' => qw( horizontal vertical diagonal );
 
 
 {
@@ -156,7 +156,7 @@ Chart::OFC::Types - type library for Chart::OFC
 
   has opacity =>
       ( is  => 'ro',
-        isa => 'Opacity',
+        isa => 'Chart::OFC::Type::Opacity',
       );
 
 =head1 DESCRIPTION

@@ -10,13 +10,13 @@ extends 'Chart::OFC::Dataset';
 
 has opacity =>
     ( is         => 'ro',
-      isa        => 'Opacity',
+      isa        => 'Chart::OFC::Type::Opacity',
       default    => '80',
     );
 
 has fill_color =>
     ( is      => 'ro',
-      isa     => 'Color',
+      isa     => 'Chart::OFC::Type::Color',
       coerce  => 1,
       default => '#999999',
     );
@@ -29,7 +29,7 @@ has label =>
 
 has text_size =>
     ( is      => 'ro',
-      isa     => 'Size',
+      isa     => 'Chart::OFC::Type::Size',
       default => 10,
     );
 

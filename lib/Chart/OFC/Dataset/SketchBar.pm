@@ -10,7 +10,7 @@ extends 'Chart::OFC::Dataset::OutlinedBar';
 
 has randomness =>
     ( is      => 'ro',
-      isa     => 'PosOrZeroInt',
+      isa     => 'Chart::OFC::Type::PosOrZeroInt',
       default => '3',
     );
 

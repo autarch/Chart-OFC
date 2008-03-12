@@ -16,14 +16,14 @@ has label =>
 
 has text_color =>
     ( is      => 'ro',
-      isa     => 'Color',
+      isa     => 'Chart::OFC::Type::Color',
       coerce  => 1,
       default => '#000000',
     );
 
 has text_size =>
     ( is      => 'ro',
-      isa     => 'Size',
+      isa     => 'Chart::OFC::Type::Size',
       default => 20,
     );
 

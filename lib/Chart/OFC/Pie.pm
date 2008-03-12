@@ -16,7 +16,7 @@ has dataset =>
 
 has slice_colors =>
     ( is         => 'ro',
-      isa        => 'NonEmptyArrayRefOfColors',
+      isa        => 'Chart::OFC::Type::NonEmptyArrayRefOfColors',
       coerce     => 1,
       lazy       => 1,
       default    => sub { [ qw( red blue green yellow orange purple black ) ] },
@@ -24,28 +24,28 @@ has slice_colors =>
 
 has line_color =>
     ( is         => 'ro',
-      isa        => 'Color',
+      isa        => 'Chart::OFC::Type::Color',
       coerce     => 1,
       default    => '#000000',
     );
 
 has 'labels' =>
     ( is         => 'ro',
-      isa        => 'NonEmptyArrayRef',
+      isa        => 'Chart::OFC::Type::NonEmptyArrayRef',
       required   => 1,
       auto_deref => 1,
     );
 
 has label_color =>
     ( is         => 'ro',
-      isa        => 'Color',
+      isa        => 'Chart::OFC::Type::Color',
       coerce     => 1,
       default    => '#000000',
     );
 
 has opacity =>
     ( is         => 'ro',
-      isa        => 'Opacity',
+      isa        => 'Chart::OFC::Type::Opacity',
       default    => '80',
     );
 

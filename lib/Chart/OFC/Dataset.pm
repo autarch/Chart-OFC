@@ -10,7 +10,7 @@ with 'Chart::OFC::Role::OFCDataLines';
 
 has 'values' =>
     ( is         => 'ro',
-      isa        => 'NonEmptyArrayRefOfNums',
+      isa        => 'Chart::OFC::Type::NonEmptyArrayRefOfNums',
       required   => 1,
       auto_deref => 1,
     );

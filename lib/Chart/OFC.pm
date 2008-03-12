@@ -31,7 +31,7 @@ has tool_tip =>
 
 has bg_color =>
     ( is        => 'ro',
-      isa       => 'Color',
+      isa       => 'Chart::OFC::Type::Color',
       coerce    => 1,
       optional  => 1,
       predicate => '_has_bg_color',
