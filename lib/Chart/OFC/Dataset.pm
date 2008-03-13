@@ -15,6 +15,14 @@ has 'values' =>
       auto_deref => 1,
     );
 
+has 'links' =>
+    ( is         => 'ro',
+      isa        => 'Chart::OFC::Type::NonEmptyArrayRef',
+      required   => 0,
+      auto_deref => 1,
+      predicate  => 'has_links',
+    );
+
 sub _ofc_data_lines { die 'This is a virtual method' }
 
 no Moose;
@@ -47,10 +55,16 @@ method.
 
 =head2 values
 
-This should be an array reference containing one more numbers for the
-X axis of the chart.
+This should be an array reference containing one more numbers
+representing values to be plotted on the chart. On grid charts, these
+are plotted on the X axis.
 
 This attribute is required, and must contain at least one value.
+
+=head2 links
+
+This is an optional attribute which may be an array reference of
+links, one per value.
 
 =head1 ROLES
 

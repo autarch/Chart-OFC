@@ -17,14 +17,6 @@ has 'values' =>
       auto_deref => 1,
     );
 
-has 'links' =>
-    ( is         => 'ro',
-      isa        => 'Chart::OFC::Type::NonEmptyArrayRef',
-      required   => 0,
-      auto_deref => 1,
-      predicate  => '_has_links',
-    );
-
 has width =>
     ( is      => 'ro',
       isa     => 'Chart::OFC::Type::PosInt',
@@ -73,7 +65,7 @@ sub _ofc_data_lines
           $self->_data_line( $val_name, $self->values() ),
         );
 
-    if ( $self->_has_links() )
+    if ( $self->has_links() )
     {
         my $links_name = 'links';
         $links_name .= q{_} . $count
@@ -134,6 +126,10 @@ class's attributes as well as its own.
 
 For this class, the values array may contain some undefined
 values. These are simply skipped in the resulting chart.
+
+=head2 links
+
+Just as with values, this may contain some undefined values.
 
 =head2 width
 
