@@ -1,10 +1,14 @@
 0.07   2008-03-13
 
+* This release requires Open Flash Chart 1.9.7 in order to function
+  100% properly. Use it with older versions at your own risk of bugs.
+
 - Prefixed all type names with Chart::OFC::Type:: in order to prevent
   type name pollution.
 
 - Enabled links for all datasets, though this only works with Pie,
-  Line, and Bar charts. Based on a patch by Justin Hawkins.
+  Line, and Bar charts. I think that before OFC 1.9.7, this only
+  worked with Pie charts. Based on a patch by Justin Hawkins.
 
 
 0.06   2008-02-24
