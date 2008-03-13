@@ -3,6 +3,9 @@
 - Prefixed all type names with Chart::OFC::Type:: in order to prevent
   type name pollution.
 
+- Enabled links for all datasets, though this only works with Pie,
+  Line, and Bar charts. Based on a patch by Justin Hawkins.
+
 
 0.06   2008-02-24
 
