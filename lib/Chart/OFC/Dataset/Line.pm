@@ -47,37 +47,7 @@ sub type
     return 'line';
 }
 
-sub _ofc_data_lines
-{
-    my $self  = shift;
-    my $count = shift;
-
-    my $name = $self->type();
-    $name .= q{_} . $count
-        if $count && $count > 1;
-
-    my $val_name = 'values';
-    $val_name .= q{_} . $count
-        if $count && $count > 1;
-
-    my @lines =
-        ( $self->_data_line( $name, $self->_line_parameters() ),
-          $self->_data_line( $val_name, $self->values() ),
-        );
-
-    if ( $self->has_links() )
-    {
-        my $links_name = 'links';
-        $links_name .= q{_} . $count
-            if $count && $count > 1;
-
-        push @lines, $self->_data_line( $links_name, $self->links() );
-    }
-
-    return @lines;
-}
-
-sub _line_parameters
+sub _parameters_for_type
 {
     my $self = shift;
 

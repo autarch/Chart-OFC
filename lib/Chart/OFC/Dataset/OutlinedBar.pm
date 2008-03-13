@@ -20,7 +20,7 @@ sub type
     return 'filled_bar';
 }
 
-sub _bar_parameters
+sub _parameters_for_type
 {
     my $self = shift;
 

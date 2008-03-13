@@ -32,7 +32,7 @@ sub type
     return 'area_hollow';
 }
 
-sub _line_parameters
+sub _parameters_for_type
 {
     my $self = shift;
 

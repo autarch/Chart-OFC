@@ -27,7 +27,7 @@ sub type
     return $self->solid_dots() ? 'line_dot' : 'line_hollow';
 }
 
-sub _line_parameters
+sub _parameters_for_type
 {
     my $self = shift;
 

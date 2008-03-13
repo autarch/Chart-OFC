@@ -23,7 +23,41 @@ has 'links' =>
       predicate  => 'has_links',
     );
 
-sub _ofc_data_lines { die 'This is a virtual method' }
+sub _ofc_data_lines
+{
+    my $self  = shift;
+    my $count = shift;
+
+    my @lines;
+    if ( $self->can('type') )
+    {
+        my $name = $self->type();
+        $name .= q{_} . $count
+            if $count && $count > 1;
+
+        push @lines,
+            $self->_data_line( $name, $self->_parameters_for_type() );
+    }
+
+    my $val_name = 'values';
+    $val_name .= q{_} . $count
+        if $count && $count > 1;
+
+    push @lines,
+        $self->_data_line( $val_name, $self->values() );
+
+    if ( $self->has_links() )
+    {
+        my $links_name = 'links';
+        $links_name .= q{_} . $count
+            if $count && $count > 1;
+
+        push @lines, $self->_data_line( $links_name, $self->links() );
+    }
+
+    return @lines;
+}
+
 
 no Moose;
 __PACKAGE__->meta()->make_immutable();

@@ -32,9 +32,9 @@ use Chart::OFC::Pie;
 
     my @data = ( '&title=Pie Test,{ font-size: 25px }&',
                  '&pie=80,#000000,#000000&',
-                 '&values=1,2,3,4,5,6,7,8,9,10&',
                  '&pie_labels=a,b,c,d,e,f,g,h,i,j&',
                  '&colours=#FF0000,#0000FF,#00FF00,#FFFF00,#FFA500,#A020F0,#000000&',
+                 '&values=1,2,3,4,5,6,7,8,9,10&',
                );
 
     my $data = join '', map { $_ . "\r\n" } @data;
@@ -53,9 +53,9 @@ use Chart::OFC::Pie;
     my $links = join ',', @links;
     my @data = ( '&title=Pie Test,{ font-size: 25px }&',
                  '&pie=80,#000000,#000000&',
-                 '&values=1,2,3,4,5,6,7,8,9,10&',
                  '&pie_labels=a,b,c,d,e,f,g,h,i,j&',
                  '&colours=#FF0000,#0000FF,#00FF00,#FFFF00,#FFA500,#A020F0,#000000&',
+                 '&values=1,2,3,4,5,6,7,8,9,10&',
                  '&links=' . $links . '&',
                );
 

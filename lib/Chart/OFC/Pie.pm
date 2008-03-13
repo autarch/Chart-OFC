@@ -66,20 +66,13 @@ override _ofc_data_lines => sub
 {
     my $self = shift;
 
-    my @lines =
+    return
         ( super(),
           $self->_data_line( 'pie', $self->opacity(), $self->line_color(), $self->label_color() ),
-          $self->_data_line( 'values', $self->dataset()->values() ),
           $self->_data_line( 'pie_labels', $self->labels() ),
           $self->_data_line( 'colours', @{ $self->slice_colors() } ),
+          $self->dataset()->_ofc_data_lines(),
         );
-
-    if ( $self->dataset()->has_links() )
-    {
-        push @lines, $self->_data_line( 'links', $self->dataset()->links() );
-    }
-
-    return @lines;
 };
 
 no Moose;

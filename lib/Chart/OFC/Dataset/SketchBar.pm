@@ -19,7 +19,7 @@ sub type
     return 'bar_sketch';
 }
 
-sub _bar_parameters
+sub _parameters_for_type
 {
     my $self = shift;
 

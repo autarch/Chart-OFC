@@ -38,26 +38,7 @@ sub type
     return 'bar';
 }
 
-sub _ofc_data_lines
-{
-    my $self  = shift;
-    my $count = shift;
-
-    my $name = $self->type();
-    $name .= q{_} . $count
-        if $count && $count > 1;
-
-    my $val_name = 'values';
-    $val_name .= q{_} . $count
-        if $count && $count > 1;
-
-    return
-        ( $self->_data_line( $name, $self->_bar_parameters() ),
-          $self->_data_line( $val_name, $self->values() ),
-        );
-}
-
-sub _bar_parameters
+sub _parameters_for_type
 {
     my $self = shift;
 
