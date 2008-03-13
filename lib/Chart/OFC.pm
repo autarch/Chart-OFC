@@ -133,7 +133,7 @@ need to embed the OFC flash in something and feed it the data to
 actually make a chart. This library does not generate Flash or HTML or
 anything like that.
 
-This library was tested with OFC 1.9.5, and follows the format defined
+This library was tested with OFC 1.9.7, and follows the format defined
 for that version. The OFC zip file is included in this distribution's
 tarball, under the F<ofc> directory.
 
