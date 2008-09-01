@@ -9,7 +9,7 @@ use Chart::OFC::Types;
 
 extends 'Chart::OFC::Dataset::Line';
 
-has 'values' =>
+has values =>
     ( is         => 'ro',
       isa        => 'Chart::OFC::Type::NonEmptyArrayRefOfArrayRefsOfNumsOrUndefs',
       required   => 1,
