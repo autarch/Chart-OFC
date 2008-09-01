@@ -30,18 +30,17 @@ has line_color =>
       default    => '#000000',
     );
 
-has 'labels' =>
+has labels =>
     ( is         => 'ro',
       isa        => 'Chart::OFC::Type::NonEmptyArrayRef',
       required   => 1,
       auto_deref => 1,
     );
 
-has label_color =>
-    ( is         => 'ro',
-      isa        => 'Chart::OFC::Type::Color',
-      coerce     => 1,
-      default    => '#000000',
+has label_style =>
+    ( is      => 'ro',
+      isa     => 'Str',
+      default => 'color: #000000',
     );
 
 has opacity =>
@@ -69,12 +68,27 @@ override _ofc_data_lines => sub
 
     return
         ( super(),
-          $self->_data_line( 'pie', $self->opacity(), $self->line_color(), $self->label_color() ),
+          $self->_data_line( 'pie',
+                             $self->opacity(),
+                             $self->line_color(),
+                             $self->_formatted_label_style(),
+                           ),
           $self->_data_line( 'pie_labels', $self->labels() ),
           $self->_data_line( 'colours', @{ $self->slice_colors() } ),
           $self->dataset()->_ofc_data_lines(),
         );
 };
+
+sub _formatted_label_style
+{
+    my $self = shift;
+
+    my $style = $self->label_style();
+
+    return unless length $style;
+
+    return '{ ' . $self->label_style() . ' }';
+}
 
 no Moose;
 
@@ -135,11 +149,11 @@ Defaults to #000000 (black).
 This should be an array reference containing one or more labels for
 the slices. This should contain one label per valuable in the dataset.
 
-=head2 label_color
+=head2 label_style
 
-The color of the label text.
-
-Defaults to #000000 (black).
+A snippet of CSS that will be applied to the labels. The default is
+"color: #000000". If you change this you should probably make sure to
+include a color.
 
 =head2 opacity
 

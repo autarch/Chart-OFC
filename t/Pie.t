@@ -31,7 +31,7 @@ use Chart::OFC::Pie;
              );
 
     my @data = ( '&title=Pie Test,{ font-size: 25px }&',
-                 '&pie=80,#000000,#000000&',
+                 '&pie=80,#000000,{ color: #000000 }&',
                  '&pie_labels=a,b,c,d,e,f,g,h,i,j&',
                  '&colours=#FF0000,#0000FF,#00FF00,#FFFF00,#FFA500,#A020F0,#000000&',
                  '&values=1,2,3,4,5,6,7,8,9,10&',
@@ -48,11 +48,15 @@ use Chart::OFC::Pie;
                                         links  => \@links,
                                       );
 
-    my $pie = Chart::OFC::Pie->new( title => 'Pie Test', dataset => $set, labels => [ 'a'..'j' ] );
+    my $pie = Chart::OFC::Pie->new( title       => 'Pie Test',
+                                    dataset     => $set,
+                                    labels      => [ 'a'..'j' ],
+                                    label_style => 'font-size: 12pt',
+                                  );
 
     my $links = join ',', @links;
     my @data = ( '&title=Pie Test,{ font-size: 25px }&',
-                 '&pie=80,#000000,#000000&',
+                 '&pie=80,#000000,{ font-size: 12pt }&',
                  '&pie_labels=a,b,c,d,e,f,g,h,i,j&',
                  '&colours=#FF0000,#0000FF,#00FF00,#FFFF00,#FFA500,#A020F0,#000000&',
                  '&values=1,2,3,4,5,6,7,8,9,10&',

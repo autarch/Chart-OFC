@@ -1,3 +1,11 @@
+0.08   2008-09-01
+
+- Updates to work with the latest Moose and MooseX modules.
+
+* Chart::OFC::Pie now accepts a label_style attribute instead of
+  label_color. Based on a patch by Josh McAdams.
+
+
 0.07   2008-03-13
 
 * This release requires Open Flash Chart 1.9.7 in order to function
