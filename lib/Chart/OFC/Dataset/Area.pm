@@ -37,7 +37,7 @@ sub _parameters_for_type
 {
     my $self = shift;
 
-    my @p = ( $self->width(), $self->dot_size(), $self->color(), $self->opacity() );
+    my @p = ( $self->width(), $self->dot_size(), $self->opacity(), $self->color() );
 
     push @p, ( $self->label(), $self->text_size() )
         if $self->_has_label();

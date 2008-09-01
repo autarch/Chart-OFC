@@ -5,6 +5,9 @@
 * Chart::OFC::Pie now accepts a label_style attribute instead of
   label_color. Based on a patch by Josh McAdams.
 
+- Chart::OFC::Area was reversing opacity and color in its
+  output. Patch by Josh McAdams.
+
 
 0.07   2008-03-13
 

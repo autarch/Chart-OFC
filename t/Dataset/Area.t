@@ -8,7 +8,7 @@ use Chart::OFC;
 {
     my $bar = Chart::OFC::Dataset::Area->new( values => [ 1, 2 ],
                                             );
-    my @data = ( '&area_hollow=2,5,#000000,80&',
+    my @data = ( '&area_hollow=2,5,80,#000000&',
                  '&values=1,2&',
                );
 
@@ -21,7 +21,7 @@ use Chart::OFC;
                                               label     => 'Intensity',
                                               text_size => 5,
                                             );
-    my @data = ( '&area_hollow=2,5,#000000,80,Intensity,5&',
+    my @data = ( '&area_hollow=2,5,80,#000000,Intensity,5&',
                  '&values=1,2&',
                );
 
@@ -38,7 +38,7 @@ use Chart::OFC;
                                               opacity    => 60,
                                               fill_color => 'blue',
                                             );
-    my @data = ( '&area_hollow=2,8,#FF0000,60,Intensity,5,#0000FF&',
+    my @data = ( '&area_hollow=2,8,60,#FF0000,Intensity,5,#0000FF&',
                  '&values=1,2&',
                );
 
