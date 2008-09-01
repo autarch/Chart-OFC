@@ -3,7 +3,7 @@ use warnings;
 
 use Test::More tests => 2;
 
-use Chart::OFC::Dataset::GlassBar;
+use Chart::OFC;
 
 
 {

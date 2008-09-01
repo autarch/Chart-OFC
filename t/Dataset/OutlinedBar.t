@@ -3,7 +3,7 @@ use warnings;
 
 use Test::More tests => 3;
 
-use Chart::OFC::Dataset::OutlinedBar;
+use Chart::OFC;
 
 
 {

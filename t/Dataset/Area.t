@@ -3,7 +3,7 @@ use warnings;
 
 use Test::More tests => 3;
 
-use Chart::OFC::Dataset::Area;
+use Chart::OFC;
 
 {
     my $bar = Chart::OFC::Dataset::Area->new( values => [ 1, 2 ],

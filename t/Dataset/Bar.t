@@ -3,7 +3,7 @@ use warnings;
 
 use Test::More tests => 5;
 
-use Chart::OFC::Dataset::Bar;
+use Chart::OFC;
 
 
 eval { Chart::OFC::Dataset::Bar->new( values => [ 1, 2 ], labels => [ 'a', 'b' ], text_size => 0 ) };

@@ -3,7 +3,7 @@ use warnings;
 
 use Test::More tests => 2;
 
-use Chart::OFC::Dataset::3DBar;
+use Chart::OFC;
 
 
 {

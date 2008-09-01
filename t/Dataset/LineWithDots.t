@@ -3,7 +3,7 @@ use warnings;
 
 use Test::More tests => 4;
 
-use Chart::OFC::Dataset::LineWithDots;
+use Chart::OFC;
 
 {
     my $bar = Chart::OFC::Dataset::LineWithDots->new( values => [ 1, 2 ],
