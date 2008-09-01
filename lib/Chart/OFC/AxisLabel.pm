@@ -3,6 +3,7 @@ package Chart::OFC::AxisLabel;
 use strict;
 use warnings;
 
+use Moose;
 use MooseX::StrictConstructor;
 use Chart::OFC::Types;
 
@@ -36,6 +37,7 @@ sub _ofc_data_lines
 }
 
 no Moose;
+
 __PACKAGE__->meta()->make_immutable();
 
 1;

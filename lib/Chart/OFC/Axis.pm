@@ -3,6 +3,7 @@ package Chart::OFC::Axis;
 use strict;
 use warnings;
 
+use Moose;
 use MooseX::StrictConstructor;
 use Chart::OFC::Types;
 
@@ -45,6 +46,7 @@ has axis_label =>
 sub _ofc_data_lines { die 'This is a virtual method' }
 
 no Moose;
+
 __PACKAGE__->meta()->make_immutable();
 
 1;

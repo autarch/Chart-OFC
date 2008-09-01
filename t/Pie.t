@@ -8,7 +8,7 @@ use Chart::OFC::Pie;
 
 {
     eval { Chart::OFC::Pie->new() };
-    like( $@, qr/\Q(dataset) is required/, 'data_set is required for constructor' );
+    like( $@, qr/\Q(labels) is required/, 'labels is required for constructor' );
 
     my $set = Chart::OFC::Dataset->new( values => [ 1..10 ] );
 

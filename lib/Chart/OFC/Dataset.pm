@@ -3,6 +3,7 @@ package Chart::OFC::Dataset;
 use strict;
 use warnings;
 
+use Moose;
 use MooseX::StrictConstructor;
 use Chart::OFC::Types;
 
@@ -58,8 +59,8 @@ sub _ofc_data_lines
     return @lines;
 }
 
-
 no Moose;
+
 __PACKAGE__->meta()->make_immutable();
 
 1;

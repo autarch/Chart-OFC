@@ -5,6 +5,7 @@ use warnings;
 
 our $VERSION = '0.07';
 
+use Moose;
 use MooseX::StrictConstructor;
 use Chart::OFC::Types;
 
@@ -91,6 +92,7 @@ require Chart::OFC::Dataset::Line;
 require Chart::OFC::Dataset::LineWithDots;
 
 no Moose;
+
 __PACKAGE__->meta()->make_immutable();
 
 1;

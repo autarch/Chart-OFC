@@ -3,6 +3,7 @@ package Chart::OFC::Grid;
 use strict;
 use warnings;
 
+use Moose;
 use MooseX::StrictConstructor;
 use Chart::OFC::Types;
 
@@ -96,6 +97,7 @@ sub _inner_background_line
 }
 
 no Moose;
+
 __PACKAGE__->meta()->make_immutable();
 
 1;

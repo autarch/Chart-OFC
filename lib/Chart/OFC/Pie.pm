@@ -3,6 +3,7 @@ package Chart::OFC::Pie;
 use strict;
 use warnings;
 
+use Moose;
 use MooseX::StrictConstructor;
 use Chart::OFC::Types;
 
@@ -76,6 +77,7 @@ override _ofc_data_lines => sub
 };
 
 no Moose;
+
 __PACKAGE__->meta()->make_immutable();
 
 1;

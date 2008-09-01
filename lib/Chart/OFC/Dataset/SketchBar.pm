@@ -3,6 +3,7 @@ package Chart::OFC::Dataset::SketchBar;
 use strict;
 use warnings;
 
+use Moose;
 use MooseX::StrictConstructor;
 use Chart::OFC::Types;
 
@@ -32,6 +33,7 @@ sub _parameters_for_type
 }
 
 no Moose;
+
 __PACKAGE__->meta()->make_immutable();
 
 1;
