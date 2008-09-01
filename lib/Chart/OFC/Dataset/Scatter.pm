@@ -9,18 +9,18 @@ use Chart::OFC::Types;
 
 extends 'Chart::OFC::Dataset::Line';
 
-has 'values' => (
-    is         => 'ro',
-    isa        => 'Chart::OFC::Type::NonEmptyArrayRefOfArrayRefsOfNumsOrUndefs',
-    required   => 1,
-    auto_deref => 1,
-);
+has 'values' =>
+    ( is         => 'ro',
+      isa        => 'Chart::OFC::Type::NonEmptyArrayRefOfArrayRefsOfNumsOrUndefs',
+      required   => 1,
+      auto_deref => 1,
+    );
 
-has circle_size => (
-    is      => 'ro',
-    isa     => 'Chart::OFC::Type::PosInt',
-    default => 5,
-);
+has circle_size =>
+    ( is      => 'ro',
+      isa     => 'Chart::OFC::Type::PosInt',
+      default => 5,
+    );
 
 sub type
 {
