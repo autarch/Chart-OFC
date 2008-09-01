@@ -7,8 +7,7 @@ use Moose::Role;
 
 requires '_ofc_data_lines';
 
-
-sub _data_line ## no critic RequireArgUnpacking
+sub _data_line    ## no critic RequireArgUnpacking
 {
     my $self  = shift;
     my $label = shift;
@@ -17,14 +16,20 @@ sub _data_line ## no critic RequireArgUnpacking
     $label =~ s/color/colour/;
 
     my $line = q{&} . $label . q{=};
-    $line .= join ',', map { defined $_ ? $self->_escape($_) : 'null' } @vals;
+
+    $line .= join ',', map {
+            defined $_
+          ? ref $_ eq 'ARRAY'
+              ? '[' . join( ',', @$_ ) . ']'
+              : $self->_escape($_)
+          : 'null'
+    } @vals;
     $line .= q{&};
 
     return $line;
 }
 
-sub _escape
-{
+sub _escape {
     shift;
     my $string = shift;
 
@@ -36,7 +41,6 @@ sub _escape
 no Moose::Role;
 
 1;
-
 
 __END__
 

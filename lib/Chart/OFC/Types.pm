@@ -46,6 +46,16 @@ subtype 'Chart::OFC::Type::NonEmptyArrayRef'
 }
 
 {
+    my $constraint = find_type_constraint('Chart::OFC::Type::NonEmptyArrayRefOfNumsOrUndefs');
+
+    subtype 'Chart::OFC::Type::NonEmptyArrayRefOfArrayRefsOfNumsOrUndefs'
+        => as 'Chart::OFC::Type::NonEmptyArrayRef',
+        => where { return 0 if any { defined && ! $constraint->check($_) } @{ $_ };
+                   return 1; }
+        => message { 'array reference cannot be empty and must contain more array references of numbers or undef' };
+}
+
+{
     my $constraint = find_type_constraint('Chart::OFC::Type::Color');
 
     subtype 'Chart::OFC::Type::NonEmptyArrayRefOfColors'

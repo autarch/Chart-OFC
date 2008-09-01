@@ -91,6 +91,7 @@ require Chart::OFC::Dataset::OutlinedBar;
 require Chart::OFC::Dataset::GlassBar;
 require Chart::OFC::Dataset::Line;
 require Chart::OFC::Dataset::LineWithDots;
+require Chart::OFC::Dataset::Scatter;
 require Chart::OFC::Dataset::SketchBar;
 
 no Moose;
