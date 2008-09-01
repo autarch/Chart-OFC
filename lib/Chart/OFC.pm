@@ -89,6 +89,7 @@ require Chart::OFC::Dataset::Bar;
 require Chart::OFC::Dataset::FadeBar;
 require Chart::OFC::Dataset::OutlinedBar;
 require Chart::OFC::Dataset::GlassBar;
+require Chart::OFC::Dataset::HighLowClose;
 require Chart::OFC::Dataset::Line;
 require Chart::OFC::Dataset::LineWithDots;
 require Chart::OFC::Dataset::Scatter;
