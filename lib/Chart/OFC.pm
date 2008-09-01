@@ -84,12 +84,14 @@ require Chart::OFC::XAxis;
 require Chart::OFC::YAxis;
 
 require Chart::OFC::Dataset::3DBar;
+require Chart::OFC::Dataset::Area;
 require Chart::OFC::Dataset::Bar;
 require Chart::OFC::Dataset::FadeBar;
 require Chart::OFC::Dataset::OutlinedBar;
 require Chart::OFC::Dataset::GlassBar;
 require Chart::OFC::Dataset::Line;
 require Chart::OFC::Dataset::LineWithDots;
+require Chart::OFC::Dataset::SketchBar;
 
 no Moose;
 
