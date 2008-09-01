@@ -17,19 +17,34 @@ sub _data_line    ## no critic RequireArgUnpacking
 
     my $line = q{&} . $label . q{=};
 
-    $line .= join ',', map {
-            defined $_
-          ? ref $_ eq 'ARRAY'
-              ? '[' . join( ',', @$_ ) . ']'
-              : $self->_escape($_)
-          : 'null'
-    } @vals;
+    $line .=
+        join ',', map { $self->_format_value($_) } @vals;
+
     $line .= q{&};
 
     return $line;
 }
 
-sub _escape {
+sub _format_value
+{
+    my $self  = shift;
+    my $value = shift;
+
+    return 'null' unless defined $value;
+
+    # nested array ref values attr for things like scatter charts
+    if ( ref $value eq 'ARRAY' )
+    {
+        return '[' . ( join ',', @{ $value } ) . ']';
+    }
+    else
+    {
+        return $self->_escape($value);
+    }
+}
+
+sub _escape
+{
     shift;
     my $string = shift;
 
