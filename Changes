@@ -1,3 +1,8 @@
+0.09   2009-07-02
+
+- Remove bogus options to Moose attributes (optional => 1).
+
+
 0.08   2008-09-01
 
 - Updates to work with the latest Moose and MooseX modules.

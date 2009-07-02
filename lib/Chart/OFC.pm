@@ -26,7 +26,6 @@ has title_style =>
 has tool_tip =>
     ( is        => 'ro',
       isa       => 'Str',
-      optional  => 1,
       predicate => '_has_tool_tip',
     );
 
@@ -34,7 +33,6 @@ has bg_color =>
     ( is        => 'ro',
       isa       => 'Chart::OFC::Type::Color',
       coerce    => 1,
-      optional  => 1,
       predicate => '_has_bg_color',
     );
 

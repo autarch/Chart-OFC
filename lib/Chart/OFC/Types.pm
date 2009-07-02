@@ -71,14 +71,7 @@ subtype 'Chart::OFC::Type::NonEmptyArrayRef'
 }
 
 {
-    unless ( find_type_constraint('Chart::OFC::Dataset' ) )
-    {
-        subtype 'Chart::OFC::Dataset'
-            => as 'Object'
-            => where { $_->isa('Chart::OFC::Dataset') };
-    }
-
-    my $constraint = find_type_constraint('Chart::OFC::Dataset');
+    my $constraint = find_type_constraint('Chart::OFC::Dataset') || class_type('Chart::OFC::Dataset');
 
     subtype 'Chart::OFC::Type::NonEmptyArrayRefOfTypedDatasets'
         => as 'Chart::OFC::Type::NonEmptyArrayRef',
