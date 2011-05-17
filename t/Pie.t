@@ -7,10 +7,10 @@ use Chart::OFC::Dataset;
 use Chart::OFC::Pie;
 
 {
-    eval { Chart::OFC::Pie->new() };
-    like( $@, qr/\Q(labels) is required/, 'labels is required for constructor' );
-
     my $set = Chart::OFC::Dataset->new( values => [ 1..10 ] );
+
+    eval { Chart::OFC::Pie->new( dataset => $set ) };
+    like( $@, qr/\Q(labels) is required/, 'labels is required for constructor' );
 
     eval { Chart::OFC::Pie->new( dataset => $set, labels => [ 'a'..'j' ], slice_colors => [] ) };
     like( $@, qr/\Qpass the type constraint/,
