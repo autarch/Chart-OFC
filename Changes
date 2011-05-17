@@ -1,6 +1,6 @@
 {{$NEXT}}
 
-- Fix failing Pie.t test.
+- Fix failing Pie.t test. Reported by Lukas Thiemeier. RT #68264.
 
 
 0.09   2009-07-02
