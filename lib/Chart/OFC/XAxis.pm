@@ -83,13 +83,11 @@ __PACKAGE__->meta()->make_immutable();
 1;
 
 
+# ABSTRACT: X axis for grid charts
+
 __END__
 
 =pod
-
-=head1 NAME
-
-Chart::OFC::XAxis - X axis for grid charts
 
 =head1 DESCRIPTION
 
@@ -137,12 +135,5 @@ Defaults to "horizontal".
 =head1 ROLES
 
 This class does the C<Chart::OFC::Role::OFCDataLines> role.
-
-=head1 COPYRIGHT & LICENSE
-
-Copyright 2007-2008 Dave Rolsky, All Rights Reserved.
-
-This program is free software; you can redistribute it and/or modify
-it under the same terms as Perl itself.
 
 =cut

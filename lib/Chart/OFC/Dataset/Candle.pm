@@ -20,13 +20,11 @@ __PACKAGE__->meta()->make_immutable();
 
 1;
 
+# ABSTRACT: A dataset represented as a candle for each value
+
 __END__
 
 =pod
-
-=head1 NAME
-
-Chart::OFC::Dataset::Candle - A dataset represented as a candle for each value
 
 =head1 SYNOPSIS
 
@@ -57,12 +55,5 @@ that class's attributes. It has no attributes of its own.
 =head1 ROLES
 
 This class does the C<Chart::OFC::Role::OFCDataLines> role.
-
-=head1 COPYRIGHT & LICENSE
-
-Copyright 2007-2008 Dave Rolsky, All Rights Reserved.
-
-This program is free software; you can redistribute it and/or modify
-it under the same terms as Perl itself.
 
 =cut

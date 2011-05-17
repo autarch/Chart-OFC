@@ -143,13 +143,11 @@ no Moose::Util::TypeConstraints;
 1;
 
 
+# ABSTRACT: type library for Chart::OFC
+
 __END__
 
 =pod
-
-=head1 NAME
-
-Chart::OFC::Types - type library for Chart::OFC
 
 =head1 SYNOPSIS
 
@@ -166,12 +164,5 @@ Chart::OFC::Types - type library for Chart::OFC
 
 This class provides a library of types for use by other Chart::OFC
 classes.
-
-=head1 COPYRIGHT & LICENSE
-
-Copyright 2007-2008 Dave Rolsky, All Rights Reserved.
-
-This program is free software; you can redistribute it and/or modify
-it under the same terms as Perl itself.
 
 =cut

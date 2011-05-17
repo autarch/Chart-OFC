@@ -66,13 +66,11 @@ __PACKAGE__->meta()->make_immutable();
 1;
 
 
+# ABSTRACT: A set of values to be charted
+
 __END__
 
 =pod
-
-=head1 NAME
-
-Chart::OFC::Dataset - A set of values to be charted
 
 =head1 SYNOPSIS
 
@@ -104,12 +102,5 @@ links, one per value.
 =head1 ROLES
 
 This class does the C<Chart::OFC::Role::OFCDataLines> role.
-
-=head1 COPYRIGHT & LICENSE
-
-Copyright 2007-2008 Dave Rolsky, All Rights Reserved.
-
-This program is free software; you can redistribute it and/or modify
-it under the same terms as Perl itself.
 
 =cut

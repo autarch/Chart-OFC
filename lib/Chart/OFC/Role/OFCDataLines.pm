@@ -57,13 +57,11 @@ no Moose::Role;
 
 1;
 
+# ABSTRACT: helper for classes which generate OFC data
+
 __END__
 
 =pod
-
-=head1 NAME
-
-Chart::OFC::Role::OFCDataLines - helper for classes which generate OFC data
 
 =head1 SYNOPSIS
 
@@ -77,12 +75,5 @@ Chart::OFC::Role::OFCDataLines - helper for classes which generate OFC data
 
 This class provides a common helper method for classes which generate
 OFC data (which is most classes in the Chart::OFC distro).
-
-=head1 COPYRIGHT & LICENSE
-
-Copyright 2007-2008 Dave Rolsky, All Rights Reserved.
-
-This program is free software; you can redistribute it and/or modify
-it under the same terms as Perl itself.
 
 =cut

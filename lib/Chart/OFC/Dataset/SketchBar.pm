@@ -38,13 +38,11 @@ __PACKAGE__->meta()->make_immutable();
 
 1;
 
+# ABSTRACT: A dataset represented as "sketch" bars
+
 __END__
 
 =pod
-
-=head1 NAME
-
-Chart::OFC::Dataset::SketchBar - A dataset represented as "sketch" bars
 
 =head1 SYNOPSIS
 
@@ -75,12 +73,5 @@ is. The greater it is the more random the look. The default value is 3.
 =head1 ROLES
 
 This class does the C<Chart::OFC::Role::OFCDataLines> role.
-
-=head1 COPYRIGHT & LICENSE
-
-Copyright 2007-2008 Dave Rolsky, All Rights Reserved.
-
-This program is free software; you can redistribute it and/or modify
-it under the same terms as Perl itself.
 
 =cut
