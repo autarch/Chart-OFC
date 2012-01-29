@@ -1,5 +1,8 @@
 {{$NEXT}}
 
+- Fix handling of non-zero value as min value in Y axis.
+
+
 0.10   2011-05-17
 
 - Fix failing Pie.t test. Reported by Lukas Thiemeier. RT #68264.
