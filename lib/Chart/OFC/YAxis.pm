@@ -54,7 +54,7 @@ sub _ofc_data_lines
     push @lines, $self->_data_line( 'y_ticks',
                                     $self->small_tick_size(),
                                     $self->large_tick_size(),
-                                    int( ( $self->max() + abs $self->min() ) / $self->label_steps() ),
+                                    int( ( $self->max() - abs $self->min() ) / $self->label_steps() ),
                                   );
 
     push @lines, $self->_data_line( 'y_min', $self->min() );
