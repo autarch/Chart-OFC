@@ -117,7 +117,7 @@ subtype 'Chart::OFC::Type::PosOrZeroInt'
 subtype 'Chart::OFC::Type::Size'
     => as 'Chart::OFC::Type::PosInt';
 
-enum 'Chart::OFC::Type::Orientation' => qw( horizontal vertical diagonal );
+enum 'Chart::OFC::Type::Orientation' => [qw( horizontal vertical diagonal )];
 
 
 {
