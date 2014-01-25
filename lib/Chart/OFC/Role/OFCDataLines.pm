@@ -63,15 +63,6 @@ __END__
 
 =pod
 
-=head1 SYNOPSIS
-
-    package Chart::OFC;
-
-    use Moose;
-    use MooseX::StrictConstructor;
-
-    with 'Chart::OFC::Role::OFCDataLines';
-
 =head1 DESCRIPTION
 
 This class provides a common helper method for classes which generate
