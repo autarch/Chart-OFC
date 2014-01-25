@@ -151,14 +151,16 @@ __END__
 
 =head1 SYNOPSIS
 
-  package Chart::OFC::Thingy;
+    package Chart::OFC::Thingy;
 
-  use Chart::OFC::Types;
+    use Chart::OFC::Types;
 
-  has opacity =>
-      ( is  => 'ro',
+    use Moose;
+
+    has opacity => (
+        is  => 'ro',
         isa => 'Chart::OFC::Type::Opacity',
-      );
+    );
 
 =head1 DESCRIPTION
 
