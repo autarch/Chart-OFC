@@ -51,19 +51,19 @@ __END__
 
 =pod
 
+=for Pod::Coverage type
+
 =head1 SYNOPSIS
 
-  my @numbers = ( [ 1, 2, 3 ], [ 3, 2, 1 ] );
-
-  my $hlc =
-      Chart::OFC::Dataset::HighLowClose->new
-          ( values    => \@numbers,
-            width     => 5,
-            color     => 'purple',
-            label     => 'Daily Sales in $',
-            text_size => 12,
-            opacity   => 80,
-          );
+    my @numbers = ( [ 1, 2, 3 ], [ 3, 2, 1 ] );
+    my $hlc = Chart::OFC::Dataset::HighLowClose->new(
+        values    => \@numbers,
+        width     => 5,
+        color     => 'purple',
+        label     => 'Daily Sales in $',
+        text_size => 12,
+        opacity   => 80,
+    );
 
 =head1 DESCRIPTION
 
@@ -82,7 +82,7 @@ that class's attributes as well as its own.
 This dataset accepts an arrayref which in turn contains one or more
 array references, each of which contains a set of values.
 
-=head2 opactiy
+=head2 opacity
 
 Sets the opacity of the line.
 

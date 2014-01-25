@@ -41,14 +41,18 @@ __PACKAGE__->meta()->make_immutable();
 
 =pod
 
+=for Pod::Coverage type
+
 =head1 SYNOPSIS
 
-  my $bars = Chart::OFC::Dataset::OutlinedBar->new( values     => \@numbers,
-                                                    opacity    => 60,
-                                                    fill_color => 'purple',
-                                                    label      => 'Daily Sales in $',
-                                                    text_size  => 12,
-                                                  );
+    my @numbers = (1, 2, 3);
+    my $bars    = Chart::OFC::Dataset::OutlinedBar->new(
+        values     => \@numbers,
+        opacity    => 60,
+        fill_color => 'purple',
+        label      => 'Daily Sales in $',
+        text_size  => 12,
+    );
 
 =head1 DESCRIPTION
 

@@ -65,11 +65,12 @@ __END__
 
 =head1 SYNOPSIS
 
-  package Chart::OFC;
+    package Chart::OFC;
 
-  use MooseX::StrictConstructor;
+    use Moose;
+    use MooseX::StrictConstructor;
 
-  with 'Chart::OFC::Role::OFCDataLines';
+    with 'Chart::OFC::Role::OFCDataLines';
 
 =head1 DESCRIPTION
 

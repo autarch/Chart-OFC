@@ -74,7 +74,8 @@ __END__
 
 =head1 SYNOPSIS
 
-  my $dataset = Chart::OFC::Dataset->new( values => \@numbers );
+    my @numbers = (1, 2, 3);
+    my $dataset = Chart::OFC::Dataset->new( values => \@numbers );
 
 =head1 DESCRIPTION
 

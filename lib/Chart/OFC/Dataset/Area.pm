@@ -61,16 +61,20 @@ __END__
 
 =pod
 
+=for Pod::Coverage type
+
 =head1 SYNOPSIS
 
-  my $bars = Chart::OFC::Dataset::Area->new( values     => \@numbers,
-                                             dot_size   => 3,
-                                             opacity    => 60,
-                                             color      => 'blue',
-                                             fill_color => 'purple',
-                                             label      => 'Daily Sales in $',
-                                             text_size  => 12,
-                                           );
+    my @numbers = (1, 2, 3);
+    my $bars    = Chart::OFC::Dataset::Area->new(
+        values     => \@numbers,
+        dot_size   => 3,
+        opacity    => 60,
+        color      => 'blue',
+        fill_color => 'purple',
+        label      => 'Daily Sales in $',
+        text_size  => 12,
+    );
 
 =head1 DESCRIPTION
 

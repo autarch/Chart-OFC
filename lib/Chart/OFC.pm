@@ -107,13 +107,14 @@ __END__
 
 =head1 SYNOPSIS
 
-    use Chart::OFC; # loads all the other classes
+    use Chart::OFC;    # loads all the other classes
 
-    my $set = Chart::OFC::Dataset->new( values => [ 1..10 ] );
-    my $pie = Chart::OFC::Pie->new( title   => 'Pie!',
-                                    dataset => $set,
-                                    labels  => [ 'a'..'j' ],
-                                  );
+    my $set = Chart::OFC::Dataset->new( values => [ 1 .. 10 ] );
+    my $pie = Chart::OFC::Pie->new(
+        title   => 'Pie!',
+        dataset => $set,
+        labels  => [ 'a' .. 'j' ],
+    );
 
     print $pie->as_ofc_data();
 

@@ -102,13 +102,15 @@ __END__
 
 =pod
 
+=for Pod::Coverage BUILD
+
 =head1 SYNOPSIS
 
-  my $dataset = Chart::OFC::Dataset->new( values => [ 1 .. 5] );
-
-  my $pie = Chart::OFC::Pie->new( title   => 'My Pie Chart',
-                                  dataset => $dataset,
-                                );
+    my $dataset = Chart::OFC::Dataset->new( values => [ 1 .. 5 ] );
+    my $pie = Chart::OFC::Pie->new(
+        title   => 'My Pie Chart',
+        dataset => $dataset,
+    );
 
 =head1 DESCRIPTION
 

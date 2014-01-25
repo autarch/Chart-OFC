@@ -26,19 +26,19 @@ __END__
 
 =pod
 
+=for Pod::Coverage type
+
 =head1 SYNOPSIS
 
-  my @numbers = ( [ 1, 2, 3 ], [ 3, 2, 1 ] );
-
-  my $hlc =
-      Chart::OFC::Dataset::Candle->new
-          ( values    => \@numbers,
-            width     => 5,
-            color     => 'purple',
-            label     => 'Daily Sales in $',
-            text_size => 12,
-            opacity   => 80,
-          );
+    my @numbers = ( [ 1, 2, 3 ], [ 3, 2, 1 ] );
+    my $candle = Chart::OFC::Dataset::Candle->new(
+        values    => \@numbers,
+        width     => 5,
+        color     => 'purple',
+        label     => 'Daily Sales in $',
+        text_size => 12,
+        opacity   => 80,
+    );
 
 =head1 DESCRIPTION
 

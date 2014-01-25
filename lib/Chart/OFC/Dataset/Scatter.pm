@@ -51,18 +51,19 @@ __END__
 
 =pod
 
+=for Pod::Coverage type
+
 =head1 SYNOPSIS
 
-  my @numbers = ( [ 1, 2, 3 ], [ 3, 2, 1 ] );
-  my $scatter =
-      Chart::OFC::Dataset::Scatter->new
-          ( values      => \@numbers,
-            width       => 5,
-            color       => 'purple',
-            label       => 'Daily Sales in $',
-            text_size   => 12,
-            circle_size => 10,
-          );
+    my @numbers = ( [ 1, 2, 3 ], [ 3, 2, 1 ] );
+    my $scatter = Chart::OFC::Dataset::Scatter->new(
+        values      => \@numbers,
+        width       => 5,
+        color       => 'purple',
+        label       => 'Daily Sales in $',
+        text_size   => 12,
+        circle_size => 10,
+    );
 
 =head1 DESCRIPTION
 

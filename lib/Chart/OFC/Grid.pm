@@ -106,19 +106,26 @@ __END__
 
 =pod
 
+=for Pod::Coverage BUILD
+
 =head1 SYNOPSIS
 
-  my $bars = Chart::OFC::Dataset::Bar->new( values => [ 1 .. 5] );
-  my $line = Chart::OFC::Dataset::Line->new( values => [ 2 .. 7] );
+    my $bars = Chart::OFC::Dataset::Bar->new( values => [ 1 .. 5 ] );
+    my $line = Chart::OFC::Dataset::Line->new( values => [ 2 .. 7 ] );
 
-  my $x_axis = Chart::OFC::XAxis->new( axis_label => 'X Axis' );
-  my $y_axis = Chart::OFC::YAxis->new( axis_label => 'Y Axis', max => 10, label_steps => 2 );
+    my $x_axis = Chart::OFC::XAxis->new( axis_label => 'X Axis' );
+    my $y_axis = Chart::OFC::YAxis->new(
+        axis_label  => 'Y Axis',
+        max         => 10,
+        label_steps => 2
+    );
 
-  my $grid = Chart::OFC::Grid->new( title    => 'My Grid Chart',
-                                    datasets => [ $bars, $line ],
-                                    x_axis   => $x_axis,
-                                    y_axis   => $y_axis,
-                                  );
+    my $grid = Chart::OFC::Grid->new(
+        title    => 'My Grid Chart',
+        datasets => [ $bars, $line ],
+        x_axis   => $x_axis,
+        y_axis   => $y_axis,
+    );
 
 =head1 DESCRIPTION
 

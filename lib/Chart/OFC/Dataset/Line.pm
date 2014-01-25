@@ -71,14 +71,18 @@ __END__
 
 =pod
 
+=for Pod::Coverage type
+
 =head1 SYNOPSIS
 
-  my $line = Chart::OFC::Dataset::Line->new( values     => \@numbers,
-                                             width      => 5,
-                                             color      => 'purple',
-                                             label      => 'Daily Sales in $',
-                                             text_size  => 12,
-                                           );
+    my @numbers = (1, 2, 3);
+    my $line    = Chart::OFC::Dataset::Line->new(
+        values    => \@numbers,
+        width     => 5,
+        color     => 'purple',
+        label     => 'Daily Sales in $',
+        text_size => 12,
+    );
 
 =head1 DESCRIPTION
 

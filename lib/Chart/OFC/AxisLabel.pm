@@ -51,10 +51,11 @@ __END__
 
 =head1 SYNOPSIS
 
-  my $label = Chart::OFC::AxisLabel->new( label      => 'Some Text',
-                                          text_color => 'blue',
-                                          text_size  => 15,
-                                        );
+    my $label = Chart::OFC::AxisLabel->new(
+        label      => 'Some Text',
+        text_color => 'blue',
+        text_size  => 15,
+    );
 
 =head1 DESCRIPTION
 
