@@ -120,6 +120,9 @@ __END__
 
 =head1 DESCRIPTION
 
+B<NOTE: You probably want to use L<Chart::OFC2> instead, or maybe just use
+some client-side JS library and skip the flash entirely.>
+
 This class lets you generate data for the Open Flash Chart
 library. OFC produces very attractive charts, but it's data format is
 byzantine and hard to understand. This library lets you generate that
